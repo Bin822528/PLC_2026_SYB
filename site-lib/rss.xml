@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[https://bin822528.github.io/PLC_knowlege/]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>site-lib/media/favicon.png</url><title>https://bin822528.github.io/PLC_knowlege/</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Thu, 10 Sep 2026 03:18:29 GMT</lastBuildDate><atom:link href="site-lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Thu, 10 Sep 2026 03:17:53 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[PLC课件笔记-索引]]></title><description><![CDATA[总览
+共 87 篇笔记，覆盖 低压电器→电气控制→PLC基础→指令系统 四个模块。
+]]></description><link>plc课件笔记/index.html</link><guid isPermaLink="false">PLC课件笔记/index.md</guid><pubDate>Thu, 10 Sep 2026 03:17:55 GMT</pubDate></item><item><title><![CDATA[ANB_ORB块指令]]></title><description><![CDATA[
+ORB：串联电路块的并联。每个分支块开头用LD/LDI，写完块执行ORB。
+ANB：并联电路块的串联。新分支起点LD/LDI，块结束执行ANB。
+AND/OR 处理单个触点与前面逻辑的运算；ANB/ORB 处理的是完整分支块之间的串联/并联。相当于 AND/OR 是"原子操作"，ANB/ORB 是"块操作"。
+注意：不要连续重复使用超过7次。 关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="LD_LDI_OUT指令" href="plc课件笔记/ld_ldi_out指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">LD_LDI_OUT指令</a>、<a data-href="AND_ANI指令" href="plc课件笔记/and_ani指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">AND_ANI指令</a>、<a data-href="OR_ORI指令" href="plc课件笔记/or_ori指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">OR_ORI指令</a>
+]]></description><link>plc课件笔记/anb_orb块指令.html</link><guid isPermaLink="false">PLC课件笔记/ANB_ORB块指令.md</guid><pubDate>Thu, 10 Sep 2026 03:17:56 GMT</pubDate></item><item><title><![CDATA[END指令]]></title><description><![CDATA[无操作数，写在用户程序末尾。PLC扫描执行到END，直接进入输出刷新阶段，END之后程序不再执行。调试时分段插入END实现分段调试。
+<a data-href="条件跳转CJ" href="plc课件笔记/条件跳转cj.html#_0" class="internal-link" target="_self" rel="noopener nofollow">条件跳转CJ</a> 中 P63 指针等价跳转到 END
+<br><a data-href="FOR_NEXT循环" href="plc课件笔记/for_next循环.html#_0" class="internal-link" target="_self" rel="noopener nofollow">FOR_NEXT循环</a> 在 NEXT 处判断是否继续循环，不匹配时自动向下执行（类似 END）
+<br><a data-href="子程序调用CALL" href="plc课件笔记/子程序调用call.html#_0" class="internal-link" target="_self" rel="noopener nofollow">子程序调用CALL</a> 中的 SRET 是子程序返回，不是 END
+<br>
+关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="PLC工作原理" href="plc课件笔记/plc工作原理.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC工作原理</a>、<a data-href="条件跳转CJ" href="plc课件笔记/条件跳转cj.html#_0" class="internal-link" target="_self" rel="noopener nofollow">条件跳转CJ</a>、<a data-href="子程序调用CALL" href="plc课件笔记/子程序调用call.html#_0" class="internal-link" target="_self" rel="noopener nofollow">子程序调用CALL</a>、<a data-href="FOR_NEXT循环" href="plc课件笔记/for_next循环.html#_0" class="internal-link" target="_self" rel="noopener nofollow">FOR_NEXT循环</a>
+]]></description><link>plc课件笔记/end指令.html</link><guid isPermaLink="false">PLC课件笔记/END指令.md</guid><pubDate>Thu, 10 Sep 2026 03:17:57 GMT</pubDate></item><item><title><![CDATA[AND_ANI指令]]></title><description><![CDATA[
+AND：常开触点串联
+ANI：常闭触点串联
+作用：单个触点和前面逻辑做与运算。串联多个触点可实现 <a data-href="三相电机正反转控制" href="plc课件笔记/三相电机正反转控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相电机正反转控制</a> 中的互锁逻辑。<br>
+关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="LD_LDI_OUT指令" href="plc课件笔记/ld_ldi_out指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">LD_LDI_OUT指令</a>
+]]></description><link>plc课件笔记/and_ani指令.html</link><guid isPermaLink="false">PLC课件笔记/AND_ANI指令.md</guid><pubDate>Thu, 10 Sep 2026 03:17:57 GMT</pubDate></item><item><title><![CDATA[FOR_NEXT循环]]></title><description><![CDATA[FNC08 FOR；FNC09 NEXT
+FOR：循环开始，操作数=循环次数；NEXT：循环结束，无操作数
+同一个扫描周期内循环体反复执行，次数完成才执行NEXT后续程序
+允许嵌套，最大5层嵌套；FOR、NEXT数量必须配对
+示例：FOR K10循环执行10次，NEXT结束循环
+关联文档 <a data-href="应用指令概述" href="plc课件笔记/应用指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">应用指令概述</a>
+<br><a data-href="条件跳转CJ" href="plc课件笔记/条件跳转cj.html#_0" class="internal-link" target="_self" rel="noopener nofollow">条件跳转CJ</a>
+<br><a data-href="中断指令EI_DI_IRET" href="plc课件笔记/中断指令ei_di_iret.html#_0" class="internal-link" target="_self" rel="noopener nofollow">中断指令EI_DI_IRET</a> ]]></description><link>plc课件笔记/for_next循环.html</link><guid isPermaLink="false">PLC课件笔记/FOR_NEXT循环.md</guid><pubDate>Thu, 10 Sep 2026 03:17:58 GMT</pubDate></item><item><title><![CDATA[INV取反指令]]></title><description><![CDATA[INV 作用于前面整个逻辑块的结果取反，而 <a data-href="AND_ANI指令" href="plc课件笔记/and_ani指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">AND_ANI指令</a> 的 ANI / <a data-href="OR_ORI指令" href="plc课件笔记/or_ori指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">OR_ORI指令</a> 的 ORI 只针对单个触点。无操作数，写在AND位置。将INV之前的逻辑运算结果取反。True→False；False→True。<br>
+关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="AND_ANI指令" href="plc课件笔记/and_ani指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">AND_ANI指令</a>、<a data-href="OR_ORI指令" href="plc课件笔记/or_ori指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">OR_ORI指令</a>
+]]></description><link>plc课件笔记/inv取反指令.html</link><guid isPermaLink="false">PLC课件笔记/INV取反指令.md</guid><pubDate>Thu, 10 Sep 2026 03:17:58 GMT</pubDate></item><item><title><![CDATA[LD_LDI_OUT指令]]></title><description><![CDATA[
+LD：取常开触点，接母线/分支起点。可用软元件X Y M S T C D□.b
+LDI：取常闭触点，接母线/分支起点。
+OUT：线圈输出指令；并联OUT可以连续多次；驱动T、C时后面必须写设定值K/D。
+OUT 驱动 T <a data-href="定时器T" href="plc课件笔记/定时器t.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定时器T</a> / C <a data-href="计数器C" href="plc课件笔记/计数器c.html#_0" class="internal-link" target="_self" rel="noopener nofollow">计数器C</a> 时需要写入设定值。OUT 线圈的输出功能也可通过 <a data-href="SET_RST置位复位" href="plc课件笔记/set_rst置位复位.html#_0" class="internal-link" target="_self" rel="noopener nofollow">SET_RST置位复位</a> 实现保持。<br>
+关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>
+]]></description><link>plc课件笔记/ld_ldi_out指令.html</link><guid isPermaLink="false">PLC课件笔记/LD_LDI_OUT指令.md</guid><pubDate>Thu, 10 Sep 2026 03:17:59 GMT</pubDate></item><item><title><![CDATA[MC_MCR主控指令]]></title><description><![CDATA[用于一组线圈共同受同一个条件控制。
+MC N□ 软元件：主控开始；条件ON，执行MC-MCR之间程序；条件OFF，MC内部母线全部断开。
+MCR N□：主控复位，结束主控范围。
+<a data-href="条件跳转CJ" href="plc课件笔记/条件跳转cj.html#_0" class="internal-link" target="_self" rel="noopener nofollow">条件跳转CJ</a> 跳转到指定标号执行，不改变内部母线状态；MC/MCR 通过主控条件控制一整段程序的通断，类似传统<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="49" to="52" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>电路中的串联总停按钮。
+N0-N7，最多8级嵌套；非嵌套反复使用N0。
+MCR分支上不能写触点。
+<br>
+关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="条件跳转CJ" href="plc课件笔记/条件跳转cj.html#_0" class="internal-link" target="_self" rel="noopener nofollow">条件跳转CJ</a>、<a data-href="END指令" href="plc课件笔记/end指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">END指令</a>
+]]></description><link>plc课件笔记/mc_mcr主控指令.html</link><guid isPermaLink="false">PLC课件笔记/MC_MCR主控指令.md</guid><pubDate>Thu, 10 Sep 2026 03:17:59 GMT</pubDate></item><item><title><![CDATA[MPS_MRD_MPP栈指令]]></title><description><![CDATA[用于多重分支输出电路，无操作数。<a data-href="ANB_ORB块指令" href="plc课件笔记/anb_orb块指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">ANB_ORB块指令</a> 中 ANB/ORB 处理的是简单块串联/并联，MPS/MRD/MPP 支持嵌套多重分支的复杂结构。
+MPS：进栈，保存当前运算结果。
+MRD：读栈，读取保存结果，栈内容不变。
+MPP：出栈，读取结果，清除栈存储。 规则：MPS与MPP使用次数必须配对相等；最多8级嵌套（FX3U）。
+<br>
+关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="ANB_ORB块指令" href="plc课件笔记/anb_orb块指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">ANB_ORB块指令</a>
+]]></description><link>plc课件笔记/mps_mrd_mpp栈指令.html</link><guid isPermaLink="false">PLC课件笔记/MPS_MRD_MPP栈指令.md</guid><pubDate>Thu, 10 Sep 2026 03:17:59 GMT</pubDate></item><item><title><![CDATA[NOP空操作]]></title><description><![CDATA[无操作数，占用一步程序。<a data-href="END指令" href="plc课件笔记/end指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">END指令</a> 终止整个扫描周期；NOP 仅占空一个程序步位，不影响扫描流程。用途：调试预留空间；删除指令不改变步序号；短路触点。<br>
+关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="END指令" href="plc课件笔记/end指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">END指令</a>
+]]></description><link>plc课件笔记/nop空操作.html</link><guid isPermaLink="false">PLC课件笔记/NOP空操作.md</guid><pubDate>Thu, 10 Sep 2026 03:18:00 GMT</pubDate></item><item><title><![CDATA[OR_ORI指令]]></title><description><![CDATA[
+OR：常开触点并联
+ORI：常闭触点并联
+作用：单个触点与上方逻辑做或运算。并联启动按钮可实现 <a data-href="多地控制线路" href="plc课件笔记/多地控制线路.html#_0" class="internal-link" target="_self" rel="noopener nofollow">多地控制线路</a> 的多地启动功能。<br>
+关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="AND_ANI指令" href="plc课件笔记/and_ani指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">AND_ANI指令</a>
+]]></description><link>plc课件笔记/or_ori指令.html</link><guid isPermaLink="false">PLC课件笔记/OR_ORI指令.md</guid><pubDate>Thu, 10 Sep 2026 03:18:00 GMT</pubDate></item><item><title><![CDATA[PLC工作原理]]></title><description><![CDATA[PLC采用循环扫描工作方式。
+输入采样阶段：一次性读取全部输入端子状态，存入输入映像寄存器。本扫描周期内输入映像区数据保持不变。
+程序执行阶段：从上到下，从左到右逐条执行用户梯形图，运算结果写入输出映像寄存器。不直接读写外部端子。
+输出刷新阶段：将输出映像寄存器的状态一次性送到物理输出端子，驱动外部负载。 扫描周期 = 输入采样时间 + 程序执行时间 + 输出刷新时间。
+特殊辅助<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="4" to="7" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>🔗<a data-href="特殊数据寄存器D8000-D8511" href="plc课件笔记/特殊数据寄存器d8000-d8511.html#_0" class="internal-link" target="_self" rel="noopener nofollow">特殊数据寄存器D8000-D8511</a>中的M8039可以设定恒定扫描周期。
+周期性循环执行；
+输入信号在程序执行期间变化，本周期不会响应，等到下一次输入采样；
+输出不会随程序运算立刻变化，要等到输出刷新阶段更新。
+<br>
+关联：<a data-href="PLC综述" href="plc课件笔记/plc综述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC综述</a>、<a data-href="PLC硬件组成" href="plc课件笔记/plc硬件组成.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC硬件组成</a>、<a data-href="PLC软件组成" href="plc课件笔记/plc软件组成.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软件组成</a>、<a data-href="辅助继电器M" href="plc课件笔记/辅助继电器m.html#_0" class="internal-link" target="_self" rel="noopener nofollow">辅助继电器M</a>、<a data-href="特殊数据寄存器D8000-D8511" href="plc课件笔记/特殊数据寄存器d8000-d8511.html#_0" class="internal-link" target="_self" rel="noopener nofollow">特殊数据寄存器D8000-D8511</a>
+]]></description><link>plc课件笔记/plc工作原理.html</link><guid isPermaLink="false">PLC课件笔记/PLC工作原理.md</guid><pubDate>Thu, 10 Sep 2026 03:18:00 GMT</pubDate></item><item><title><![CDATA[PLC常数表示K H E]]></title><description><![CDATA[
+K：十进制常数，定时器计数器设定值最常用。例 K100
+H：十六进制常数。例 H0、H1234
+E：浮点数（实数），指数形式。例 E1.2345+3 关联：<a data-href="位元件与字元件" href="plc课件笔记/位元件与字元件.html#_0" class="internal-link" target="_self" rel="noopener nofollow">位元件与字元件</a>、<a data-href="定时器T" href="plc课件笔记/定时器t.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定时器T</a>、<a data-href="计数器C" href="plc课件笔记/计数器c.html#_0" class="internal-link" target="_self" rel="noopener nofollow">计数器C</a>
+]]></description><link>plc课件笔记/plc常数表示k-h-e.html</link><guid isPermaLink="false">PLC课件笔记/PLC常数表示K H E.md</guid><pubDate>Thu, 10 Sep 2026 03:18:01 GMT</pubDate></item><item><title><![CDATA[PLC的编程语言及编程规则]]></title><description><![CDATA[
+梯形图LD：最常用，<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="5" to="8" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>图形，和电气原理图接近。
+指令表IL：助记符，对应梯形图，可互相转换。
+<br>步进STL：步进顺控，配合<a data-href="状态继电器S" href="plc课件笔记/状态继电器s.html#_0" class="internal-link" target="_self" rel="noopener nofollow">状态继电器S</a>，详见 <a data-href="SET_RST置位复位" href="plc课件笔记/set_rst置位复位.html#_0" class="internal-link" target="_self" rel="noopener nofollow">SET_RST置位复位</a> 中的 RST 复位相关说明。
+结构化文本ST：高级文本语言。
+<br>步进顺控指令配合<a data-href="状态继电器S" href="plc课件笔记/状态继电器s.html#_0" class="internal-link" target="_self" rel="noopener nofollow">状态继电器S</a>使用，在 <a data-href="PLC的编程语言及编程规则" href="plc课件笔记/plc的编程语言及编程规则.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC的编程语言及编程规则</a> 中介绍。
+<br>线圈不能直接接左母线，线圈右边不能接触点。→ 对应 <a data-href="LD_LDI_OUT指令" href="plc课件笔记/ld_ldi_out指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">LD_LDI_OUT指令</a>
+触点可以无限次重复使用；线圈在同一程序中尽量不要重复输出（双线圈输出问题）。
+<br>程序从上往下，从左往右执行。→ 扫描周期由 <a data-href="PLC工作原理" href="plc课件笔记/plc工作原理.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC工作原理</a> 定义
+<br>串联多的触点放上面 → <a data-href="AND_ANI指令" href="plc课件笔记/and_ani指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">AND_ANI指令</a> 优化技巧；并联多的触点放左边 → <a data-href="OR_ORI指令" href="plc课件笔记/or_ori指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">OR_ORI指令</a> 优化技巧
+<br>程序末尾必须写<a data-href="END指令" href="plc课件笔记/end指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">END指令</a>。
+<br>
+关联：<a data-href="状态继电器S" href="plc课件笔记/状态继电器s.html#_0" class="internal-link" target="_self" rel="noopener nofollow">状态继电器S</a>、<a data-href="END指令" href="plc课件笔记/end指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">END指令</a>、<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="PLC工作原理" href="plc课件笔记/plc工作原理.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC工作原理</a>、<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>
+]]></description><link>plc课件笔记/plc的编程语言及编程规则.html</link><guid isPermaLink="false">PLC课件笔记/PLC的编程语言及编程规则.md</guid><pubDate>Thu, 10 Sep 2026 03:18:01 GMT</pubDate></item><item><title><![CDATA[MEP_MEF指令]]></title><description><![CDATA[无操作数；写在AND指令位置。
+MEP：前面运算结果上升沿，输出一个扫描周期ON
+MEF：前面运算结果下降沿，输出一个扫描周期ON
+<a data-href="边沿脉冲指令LDP_LDF" href="plc课件笔记/边沿脉冲指令ldp_ldf.html#_0" class="internal-link" target="_self" rel="noopener nofollow">边沿脉冲指令LDP_LDF</a> 针对单个触点的电平跳变；MEP/MEF 针对的是前面整个逻辑运算的结果的上升沿/下降沿。<br>
+关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="边沿脉冲指令LDP_LDF" href="plc课件笔记/边沿脉冲指令ldp_ldf.html#_0" class="internal-link" target="_self" rel="noopener nofollow">边沿脉冲指令LDP_LDF</a>
+]]></description><link>plc课件笔记/mep_mef指令.html</link><guid isPermaLink="false">PLC课件笔记/MEP_MEF指令.md</guid><pubDate>Thu, 10 Sep 2026 03:18:02 GMT</pubDate></item><item><title><![CDATA[PLC硬件组成]]></title><description><![CDATA[硬件五大核心部分
+CPU（中央处理单元）：核心，执行用户程序，处理输入输出，运算处理。
+存储器 系统程序存储器：ROM，存放PLC系统固件，用户不可修改
+用户程序存储器：RAM/EEPROM，存放用户编写梯形图程序 输入接口电路：接收外部按钮、传感器信号，光电隔离。对应<a data-href="输入继电器X" href="plc课件笔记/输入继电器x.html#_0" class="internal-link" target="_self" rel="noopener nofollow">输入继电器X</a>。
+<br>输出接口电路：输出驱动外部负载，三种输出类型：<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="17" to="20" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>输出、晶体管输出、晶闸管输出。对应<a data-href="输出继电器Y" href="plc课件笔记/输出继电器y.html#_0" class="internal-link" target="_self" rel="noopener nofollow">输出继电器Y</a>。
+电源模块：给PLC内部电路供电。
+<br>拓展：扩展单元、扩展模块、编程外设 <a data-href="编程调试设备" href="plc课件笔记/编程调试设备.html#_0" class="internal-link" target="_self" rel="noopener nofollow">编程调试设备</a>。<br>
+关联：<a data-href="PLC综述" href="plc课件笔记/plc综述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC综述</a>、<a data-href="PLC软件组成" href="plc课件笔记/plc软件组成.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软件组成</a>、<a data-href="PLC工作原理" href="plc课件笔记/plc工作原理.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC工作原理</a>、<a data-href="输入继电器X" href="plc课件笔记/输入继电器x.html#_0" class="internal-link" target="_self" rel="noopener nofollow">输入继电器X</a>、<a data-href="输出继电器Y" href="plc课件笔记/输出继电器y.html#_0" class="internal-link" target="_self" rel="noopener nofollow">输出继电器Y</a>、<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>
+]]></description><link>plc课件笔记/plc硬件组成.html</link><guid isPermaLink="false">PLC课件笔记/PLC硬件组成.md</guid><pubDate>Wed, 09 Sep 2026 08:59:37 GMT</pubDate></item><item><title><![CDATA[PLC综述]]></title><description><![CDATA[PLC（可编程逻辑控制器），专为工业环境应用而设计的数字运算操作电子系统。采用可编程存储器，用于内部存储程序，执行逻辑运算、顺序控制、定时、计数与算术操作，通过数字/模拟输入输出控制各类机械或生产过程。
+可靠性高，抗干扰能力强
+编程简单，易学易用
+功能完善，通用性强
+系统设计安装调试<a href="003工作/工作量.html" target="_self" rel="noopener noreferrer" from="8" to="11" origin-text="工作量" class="internal-link virtual-link-a">工作量</a>少
+体积小、功耗低 小型PLC：I/O 256点以下
+中型PLC：I/O 256~1024点
+大型PLC：I/O 1024点以上 整体式：CPU、电源、I/O集成一体，FX3U属于整体式，可扩展模块
+模块式：CPU模块、电源模块、输入输出模块分开，机架组装
+PLC 广泛应用于电机点动/长动控制、正反转控制、Y-△降压启动等多种电气控制场景。<br>
+关联：<a data-href="PLC硬件组成" href="plc课件笔记/plc硬件组成.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC硬件组成</a>、<a data-href="PLC软件组成" href="plc课件笔记/plc软件组成.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软件组成</a>、<a data-href="PLC工作原理" href="plc课件笔记/plc工作原理.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC工作原理</a>、<a data-href="编程调试设备" href="plc课件笔记/编程调试设备.html#_0" class="internal-link" target="_self" rel="noopener nofollow">编程调试设备</a>、<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>
+]]></description><link>plc课件笔记/plc综述.html</link><guid isPermaLink="false">PLC课件笔记/PLC综述.md</guid><pubDate>Thu, 10 Sep 2026 03:18:03 GMT</pubDate></item><item><title><![CDATA[PLC软件组成]]></title><description><![CDATA[分为系统软件与用户软件
+系统软件：PLC厂家固化，包含系统管理程序、用户程序编译、故障诊断。用户不能修改。
+用户软件：用户自行编写控制程序。 主程序：循环扫描执行
+子程序：CALL调用，执行完SRET返回
+中断程序：由中断指针触发，EI/DI开启关闭中断，IRET返回。 关联：<a data-href="PLC综述" href="plc课件笔记/plc综述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC综述</a>、<a data-href="PLC硬件组成" href="plc课件笔记/plc硬件组成.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC硬件组成</a>、<a data-href="PLC工作原理" href="plc课件笔记/plc工作原理.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC工作原理</a>、<a data-href="分支指针P" href="plc课件笔记/分支指针p.html#_0" class="internal-link" target="_self" rel="noopener nofollow">分支指针P</a>、<a data-href="中断指针I" href="plc课件笔记/中断指针i.html#_0" class="internal-link" target="_self" rel="noopener nofollow">中断指针I</a>、<a data-href="应用指令概述" href="plc课件笔记/应用指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">应用指令概述</a>
+]]></description><link>plc课件笔记/plc软件组成.html</link><guid isPermaLink="false">PLC课件笔记/PLC软件组成.md</guid><pubDate>Thu, 10 Sep 2026 03:18:03 GMT</pubDate></item><item><title><![CDATA[PLC软元件概述]]></title><description><![CDATA[软元件是PLC内部的存储单元/逻辑单元，模拟传统<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="24" to="27" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>线圈、触点；无机械物理实体。
+特点：触点在程序中可以无数次重复使用；每个元件拥有固定地址编号。
+编号规则：X、Y八进制；M、S、T、C、D、V、Z十进制。 <br><a data-href="输入继电器X" href="plc课件笔记/输入继电器x.html#_0" class="internal-link" target="_self" rel="noopener nofollow">输入继电器X</a>
+<br><a data-href="输出继电器Y" href="plc课件笔记/输出继电器y.html#_0" class="internal-link" target="_self" rel="noopener nofollow">输出继电器Y</a>
+<br><a data-href="辅助继电器M" href="plc课件笔记/辅助继电器m.html#_0" class="internal-link" target="_self" rel="noopener nofollow">辅助继电器M</a>（普通、断电保持、特殊）
+<br><a data-href="状态继电器S" href="plc课件笔记/状态继电器s.html#_0" class="internal-link" target="_self" rel="noopener nofollow">状态继电器S</a>
+<br><a data-href="定时器T" href="plc课件笔记/定时器t.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定时器T</a>（普通定时器、积算定时器）
+<br><a data-href="计数器C" href="plc课件笔记/计数器c.html#_0" class="internal-link" target="_self" rel="noopener nofollow">计数器C</a>（内部计数器、高速计数器）
+<br><a data-href="数据寄存器D" href="plc课件笔记/数据寄存器d.html#_0" class="internal-link" target="_self" rel="noopener nofollow">数据寄存器D</a>
+<br><a data-href="变址寄存器V Z" href="plc课件笔记/变址寄存器v-z.html#_0" class="internal-link" target="_self" rel="noopener nofollow">变址寄存器V Z</a>
+<br><a data-href="分支指针P" href="plc课件笔记/分支指针p.html#_0" class="internal-link" target="_self" rel="noopener nofollow">分支指针P</a>、<a data-href="中断指针I" href="plc课件笔记/中断指针i.html#_0" class="internal-link" target="_self" rel="noopener nofollow">中断指针I</a>
+<br><a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>中的所有指令操作对象都是上述软元件（X/Y/M/S等）。<a data-href="应用指令概述" href="plc课件笔记/应用指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">应用指令概述</a>则提供高级数据处理功能，操作数包括D <a data-href="数据寄存器D" href="plc课件笔记/数据寄存器d.html#_0" class="internal-link" target="_self" rel="noopener nofollow">数据寄存器D</a>、T <a data-href="定时器T" href="plc课件笔记/定时器t.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定时器T</a>、C <a data-href="计数器C" href="plc课件笔记/计数器c.html#_0" class="internal-link" target="_self" rel="noopener nofollow">计数器C</a> 等。<br>位/字划分 → <a data-href="位元件与字元件" href="plc课件笔记/位元件与字元件.html#_0" class="internal-link" target="_self" rel="noopener nofollow">位元件与字元件</a>；常数表示 → <a data-href="PLC常数表示K H E" href="plc课件笔记/plc常数表示k-h-e.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC常数表示K H E</a><br>
+关联：<a data-href="输入继电器X" href="plc课件笔记/输入继电器x.html#_0" class="internal-link" target="_self" rel="noopener nofollow">输入继电器X</a>、<a data-href="输出继电器Y" href="plc课件笔记/输出继电器y.html#_0" class="internal-link" target="_self" rel="noopener nofollow">输出继电器Y</a>、<a data-href="辅助继电器M" href="plc课件笔记/辅助继电器m.html#_0" class="internal-link" target="_self" rel="noopener nofollow">辅助继电器M</a>、<a data-href="状态继电器S" href="plc课件笔记/状态继电器s.html#_0" class="internal-link" target="_self" rel="noopener nofollow">状态继电器S</a>、<a data-href="定时器T" href="plc课件笔记/定时器t.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定时器T</a>、<a data-href="计数器C" href="plc课件笔记/计数器c.html#_0" class="internal-link" target="_self" rel="noopener nofollow">计数器C</a>、<a data-href="数据寄存器D" href="plc课件笔记/数据寄存器d.html#_0" class="internal-link" target="_self" rel="noopener nofollow">数据寄存器D</a>、<a data-href="变址寄存器V Z" href="plc课件笔记/变址寄存器v-z.html#_0" class="internal-link" target="_self" rel="noopener nofollow">变址寄存器V Z</a>、<a data-href="分支指针P" href="plc课件笔记/分支指针p.html#_0" class="internal-link" target="_self" rel="noopener nofollow">分支指针P</a>、<a data-href="中断指针I" href="plc课件笔记/中断指针i.html#_0" class="internal-link" target="_self" rel="noopener nofollow">中断指针I</a>
+]]></description><link>plc课件笔记/plc软元件概述.html</link><guid isPermaLink="false">PLC课件笔记/PLC软元件概述.md</guid><pubDate>Thu, 10 Sep 2026 03:18:04 GMT</pubDate></item><item><title><![CDATA[PLS_PLF微分指令]]></title><description><![CDATA[ PLS：输入信号上升沿，目标Y/M输出一个扫描周期脉冲。 PLF：输入信号下降沿，目标Y/M输出一个扫描周期脉冲。 PLF：输入信号下降沿，目标Y/M输出一个扫描周期脉冲。 <a data-href="SET_RST置位复位" href="plc课件笔记/set_rst置位复位.html#_0" class="internal-link" target="_self" rel="noopener nofollow">SET_RST置位复位</a> 使元件保持ON/OFF状态；PLS/PLF 仅产生单个扫描周期的脉冲信号（自动恢复）。<br>
+不能用于特殊<a href="plc课件笔记/辅助继电器m.html#_0" target="_self" rel="noopener noreferrer" from="6" to="12" origin-text="辅助继电器M" class="internal-link virtual-link-a">辅助继电器M</a>🔗。
+<br>
+关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="SET_RST置位复位" href="plc课件笔记/set_rst置位复位.html#_0" class="internal-link" target="_self" rel="noopener nofollow">SET_RST置位复位</a>、<a data-href="边沿脉冲指令LDP_LDF" href="plc课件笔记/边沿脉冲指令ldp_ldf.html#_0" class="internal-link" target="_self" rel="noopener nofollow">边沿脉冲指令LDP_LDF</a>、<a data-href="辅助继电器M" href="plc课件笔记/辅助继电器m.html#_0" class="internal-link" target="_self" rel="noopener nofollow">辅助继电器M</a>
+]]></description><link>plc课件笔记/pls_plf微分指令.html</link><guid isPermaLink="false">PLC课件笔记/PLS_PLF微分指令.md</guid><pubDate>Thu, 10 Sep 2026 03:18:04 GMT</pubDate></item><item><title><![CDATA[SET_RST置位复位]]></title><description><![CDATA[
+SET：置位，目标元件变为ON并且保持。支持Y、M、S。
+RST：复位，清除状态。可复位Y M S T C；也可以复位D、V、Z寄存器清零。 单按钮启停：配合 <a data-href="辅助继电器M" href="plc课件笔记/辅助继电器m.html#_0" class="internal-link" target="_self" rel="noopener nofollow">辅助继电器M</a> 的交替输出功能（ALT）实现类似效果
+<br>Y-△降压启动：<a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a> 控制星形/三角形切换过程中，KM△的吸合可以用 SET 保持
+<br>
+同一元件同时满足SET、RST条件时，靠后的指令优先执行。RST可以复位<a data-href="定时器T" href="plc课件笔记/定时器t.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定时器T</a>、<a data-href="计数器C" href="plc课件笔记/计数器c.html#_0" class="internal-link" target="_self" rel="noopener nofollow">计数器C</a>当前值。
+<br>
+关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="定时器T" href="plc课件笔记/定时器t.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定时器T</a>、<a data-href="计数器C" href="plc课件笔记/计数器c.html#_0" class="internal-link" target="_self" rel="noopener nofollow">计数器C</a>、<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>、<a data-href="Y‑△降压启动" href="plc课件笔记/y‑△降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">Y‑△降压启动</a>
+]]></description><link>plc课件笔记/set_rst置位复位.html</link><guid isPermaLink="false">PLC课件笔记/SET_RST置位复位.md</guid><pubDate>Thu, 10 Sep 2026 03:18:05 GMT</pubDate></item><item><title><![CDATA[Y‑△降压启动]]></title><description><![CDATA[启动时星形Y接法，降低启动电流；延时之后切换三角形△接法全压运行；只适用于正常运行绕组为三角形接法电机。
+按下启动，KM主<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="8" to="11" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>🔗+KMY星形<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="17" to="20" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>吸合，电机星形降压启动
+<br><a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a>KT计时
+<br>延时到断开KMY，接通KM△三角形<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="17" to="20" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>🔗
+电机全压三角运行
+<br>两者都是降压启动方式。<a data-href="定子串电阻降压启动" href="plc课件笔记/定子串电阻降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定子串电阻降压启动</a>通过在定子绕组串联电阻分压限流，适用于所有笼型电机；Y-△启动只适用于正常运行时绕组为三角形接法的电机。<br>
+关联：<a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>、<a data-href="定子串电阻降压启动" href="plc课件笔记/定子串电阻降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定子串电阻降压启动</a>、<a data-href="软启动器原理" href="plc课件笔记/软启动器原理.html#_0" class="internal-link" target="_self" rel="noopener nofollow">软启动器原理</a>
+]]></description><link>plc课件笔记/y‑△降压启动.html</link><guid isPermaLink="false">PLC课件笔记/Y‑△降压启动.md</guid><pubDate>Thu, 10 Sep 2026 03:18:05 GMT</pubDate></item><item><title><![CDATA[三相异步电机长动控制]]></title><description><![CDATA[
+按下启动按钮SB2 → KM线圈得电；KM主触点闭合电机运转；KM常开辅助触点并联在启动按钮两端，实现自锁。
+按下停止按钮SB1，线圈断电，电机停止。
+QS → FU → KM主触点 → FR热元件 → 电机MFR常闭触点 → SB1停止按钮常闭 → SB2启动按钮常开（并联KM常开辅助触点）→ KM线圈 → L2
+<a href="plc课件笔记/短路保护.html#_0" target="_self" rel="noopener noreferrer" from="0" to="4" origin-text="短路保护" class="internal-link virtual-link-a">短路保护</a>🔗：FU<a href="plc课件笔记/熔断器.html#_0" target="_self" rel="noopener noreferrer" from="7" to="10" origin-text="熔断器" class="internal-link virtual-link-a">熔断器</a>🔗
+<br><a href="plc课件笔记/过载保护.html#_0" target="_self" rel="noopener noreferrer" from="0" to="4" origin-text="过载保护" class="internal-link virtual-link-a">过载保护</a>🔗：<a data-href="热继电器" href="plc课件笔记/热继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">热继电器</a>FR常闭触点
+<br><a data-href="失电压保护" href="plc课件笔记/失电压保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">失电压保护</a>：依靠KM自锁触点实现，停电后不会自启动。
+<br><a data-href="三相异步电机点动控制" href="plc课件笔记/三相异步电机点动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机点动控制</a>无自锁触点，按下时运转，松开即停；长动控制通过KM辅助常开触点实现自锁，松开按钮后继续运行。<br>
+关联：<a data-href="三相异步电机点动控制" href="plc课件笔记/三相异步电机点动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机点动控制</a>、<a data-href="接触器" href="plc课件笔记/接触器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">接触器</a>、<a data-href="热继电器" href="plc课件笔记/热继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">热继电器</a>、<a data-href="失电压保护" href="plc课件笔记/失电压保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">失电压保护</a>、<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>
+]]></description><link>plc课件笔记/三相异步电机长动控制.html</link><guid isPermaLink="false">PLC课件笔记/三相异步电机长动控制.md</guid><pubDate>Thu, 10 Sep 2026 03:18:05 GMT</pubDate></item><item><title><![CDATA[三相异步电机点动控制]]></title><description><![CDATA[按下按钮SB，电机运行；松开按钮SB，电机停止；无自锁回路。QS → FU → KM主触点 → FR热元件 → 电机MFR常闭触点 → 点动按钮SB → <a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="18" to="21" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>KM线圈<br>
+关联：<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>、<a data-href="接触器" href="plc课件笔记/接触器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">接触器</a>、<a data-href="热继电器" href="plc课件笔记/热继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">热继电器</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>
+]]></description><link>plc课件笔记/三相异步电机点动控制.html</link><guid isPermaLink="false">PLC课件笔记/三相异步电机点动控制.md</guid><pubDate>Wed, 09 Sep 2026 08:59:34 GMT</pubDate></item><item><title><![CDATA[三相电机正反转控制]]></title><description><![CDATA[调换三相电源任意两相相序，电机旋转方向改变。
+KM1：正转<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="6" to="9" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>🔗
+<br>KM2：反转<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="6" to="9" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>🔗 ⚠️ 安全：KM1、KM2严禁同时吸合，造成电源相间短路，必须设置互锁。 电气互锁：KM1常闭串入KM2线圈回路；KM2常闭串入KM1线圈回路。
+机械互锁：按钮复合互锁（按钮互锁）。
+复合互锁：电气+按钮双重互锁，可直接切换正反转。
+<br>正反转控制的<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="6" to="9" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>互锁画法遵循<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>中主电路和控制电路的绘制规范。<br>
+关联：<a data-href="接触器" href="plc课件笔记/接触器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">接触器</a>、<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>、<a data-href="多地控制线路" href="plc课件笔记/多地控制线路.html#_0" class="internal-link" target="_self" rel="noopener nofollow">多地控制线路</a>
+]]></description><link>plc课件笔记/三相电机正反转控制.html</link><guid isPermaLink="false">PLC课件笔记/三相电机正反转控制.md</guid><pubDate>Thu, 10 Sep 2026 03:18:06 GMT</pubDate></item><item><title><![CDATA[中断指令EI_DI_IRET]]></title><description><![CDATA[FNC04 EI允许中断；FNC05 DI禁止中断；FNC03 IRET中断返回
+中断子程序放在FEND~END之间，每个中断子程序以IRET结尾
+中断子程序定时器只能用 T192‑T199
+中断允许/禁止：EI开中断；DI关中断
+中断屏蔽特殊<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="6" to="9" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>🔗 输入中断：M8050‑M8055
+定时器中断：M8056‑M8058
+高速计数器中断：M8059
+OFF=中断有效 优先级：同时发生，指针编号小优先；顺序发生先来优先
+关联文档 <br><a data-href="应用指令概述" href="plc课件笔记/应用指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">应用指令概述</a>
+<br><a data-href="子程序调用CALL" href="plc课件笔记/子程序调用call.html#_0" class="internal-link" target="_self" rel="noopener nofollow">子程序调用CALL</a>
+<br><a data-href="FOR_NEXT循环" href="plc课件笔记/for_next循环.html#_0" class="internal-link" target="_self" rel="noopener nofollow">FOR_NEXT循环</a> ]]></description><link>plc课件笔记/中断指令ei_di_iret.html</link><guid isPermaLink="false">PLC课件笔记/中断指令EI_DI_IRET.md</guid><pubDate>Thu, 10 Sep 2026 03:18:07 GMT</pubDate></item><item><title><![CDATA[中断指针I]]></title><description><![CDATA[中断程序标号，配合EI允许中断、DI禁止中断、IRET中断返回。三类中断指针：
+输入中断 I△0□
+△=输入号0-5(X0-X5)；□=边沿：0下降沿，1上升沿；例I001代表X0上升沿中断。 注意：输入中断占用的X0-X5，不可再分配给高速计数器。 定时器中断 I6□□ I7□□ I8□□
+周期性定时中断；□□为10~99ms；例I720：每20ms执行一次中断子程序。
+高速计数器中断 I010~I060：高速计数器比较匹配触发中断。 关联：<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>、<a data-href="分支指针P" href="plc课件笔记/分支指针p.html#_0" class="internal-link" target="_self" rel="noopener nofollow">分支指针P</a>、<a data-href="计数器C" href="plc课件笔记/计数器c.html#_0" class="internal-link" target="_self" rel="noopener nofollow">计数器C</a>
+]]></description><link>plc课件笔记/中断指针i.html</link><guid isPermaLink="false">PLC课件笔记/中断指针I.md</guid><pubDate>Thu, 10 Sep 2026 03:18:07 GMT</pubDate></item><item><title><![CDATA[主令电器]]></title><description><![CDATA[
+作用：发布控制指令，间接控制<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="14" to="17" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>🔗/<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="18" to="21" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>🔗，不直接驱动主电路。 控制按钮 SB：短时通断小电流控制回路，电流一般≤5A；分为常开按钮、常闭按钮、复合按钮。
+行程开关（限位开关 SQ）：机械挡铁碰撞驱动触点，检测机械位置。
+接近开关：无触点位置检测；分类：涡流式、电容式、霍尔、光电式。
+万能转换开关、脚踏开关、倒顺开关、急停开关。
+<br>
+关联：<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>、<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>、<a data-href="自动往复循环控制" href="plc课件笔记/自动往复循环控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">自动往复循环控制</a>、<a data-href="多地控制线路" href="plc课件笔记/多地控制线路.html#_0" class="internal-link" target="_self" rel="noopener nofollow">多地控制线路</a>
+]]></description><link>plc课件笔记/主令电器.html</link><guid isPermaLink="false">PLC课件笔记/主令电器.md</guid><pubDate>Thu, 10 Sep 2026 03:18:07 GMT</pubDate></item><item><title><![CDATA[交换转换指令XCH_BCD_BIN]]></title><description><![CDATA[两个目标字互相交换；连续模式每个扫描周期交换，慎用，优先XCHP脉冲二进制转BCD码；16位源0‑9999；32位DBCD：0‑99999999BCD转二进制；输入非法BCD，M8067置ON，目标数据不变关联文档 <a data-href="传送指令集" href="plc课件笔记/传送指令集.html#_0" class="internal-link" target="_self" rel="noopener nofollow">传送指令集</a>
+<br><a data-href="算术运算指令集" href="plc课件笔记/算术运算指令集.html#_0" class="internal-link" target="_self" rel="noopener nofollow">算术运算指令集</a> ]]></description><link>plc课件笔记/交换转换指令xch_bcd_bin.html</link><guid isPermaLink="false">PLC课件笔记/交换转换指令XCH_BCD_BIN.md</guid><pubDate>Thu, 10 Sep 2026 03:18:08 GMT</pubDate></item><item><title><![CDATA[传送指令集]]></title><description><![CDATA[使用注意
+脉冲型MOVP，上升沿执行；连续型每个扫描周期刷新
+关联文档 <a data-href="应用指令概述" href="plc课件笔记/应用指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">应用指令概述</a>
+<br><a data-href="比较指令CMP_ZCP" href="plc课件笔记/比较指令cmp_zcp.html#_0" class="internal-link" target="_self" rel="noopener nofollow">比较指令CMP_ZCP</a>
+<br><a data-href="交换转换指令XCH_BCD_BIN" href="plc课件笔记/交换转换指令xch_bcd_bin.html#_0" class="internal-link" target="_self" rel="noopener nofollow">交换转换指令XCH_BCD_BIN</a> ]]></description><link>plc课件笔记/传送指令集.html</link><guid isPermaLink="false">PLC课件笔记/传送指令集.md</guid><pubDate>Thu, 10 Sep 2026 03:18:08 GMT</pubDate></item><item><title><![CDATA[位元件与字元件]]></title><description><![CDATA[只有ON/OFF两种状态：X、Y、M、S。Kn+位元件：把连续4*n个位元件组合成字数据。
+K1Y0：Y0-Y3（4bit）
+K2X0：X0-X7（8bit）
+K4M10：M10-M25（16bit）
+K8M100：M100-M131（32bit） 16位指令Kn最大K4；32位指令Kn最大K8。
+存储16位数值：T、C、D、R、V、Z。字元件位指定：D5.0代表D5的b0位；D12.E代表bE位；位指定不能变址。
+关联：<a data-href="PLC常数表示K H E" href="plc课件笔记/plc常数表示k-h-e.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC常数表示K H E</a>、<a data-href="数据寄存器D" href="plc课件笔记/数据寄存器d.html#_0" class="internal-link" target="_self" rel="noopener nofollow">数据寄存器D</a>
+]]></description><link>plc课件笔记/位元件与字元件.html</link><guid isPermaLink="false">PLC课件笔记/位元件与字元件.md</guid><pubDate>Thu, 10 Sep 2026 03:18:08 GMT</pubDate></item><item><title><![CDATA[低压电器概述]]></title><description><![CDATA[低压电器：交流电压≤1200V，直流电压≤1500VDC，在电路中实现通断、保护、控制、调节的电气设备。
+配电电器：刀开关、隔离开关、自动开关
+保护电器：<a href="plc课件笔记/热继电器.html#_0" target="_self" rel="noopener noreferrer" from="1" to="5" origin-text="热继电器" class="internal-link virtual-link-a">热继电器</a>🔗、<a href="plc课件笔记/熔断器.html#_0" target="_self" rel="noopener noreferrer" from="6" to="9" origin-text="熔断器" class="internal-link virtual-link-a">熔断器</a>🔗
+<br>控制电器：<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="1" to="4" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>🔗、控制<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="7" to="10" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>🔗、起动器
+<br><a href="plc课件笔记/主令电器.html#_0" target="_self" rel="noopener noreferrer" from="0" to="4" origin-text="主令电器" class="internal-link virtual-link-a">主令电器</a>🔗：按钮、行程开关、转换开关
+执行电器：电磁铁、电磁离合器 手动切换电器
+自动切换电器 电磁式电器
+非电量控制电器 有触点电器
+无触点电器
+额定电流、额定电压、绝缘强度、耐潮湿性能、极限允许温升、操作频率、电持续率、机械寿命、电气寿命。
+<br><a data-href="短路保护" href="plc课件笔记/短路保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">短路保护</a>
+<br><a data-href="过载保护" href="plc课件笔记/过载保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">过载保护</a>
+<br><a data-href="漏电保护" href="plc课件笔记/漏电保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">漏电保护</a>
+<br><a data-href="欠电压保护" href="plc课件笔记/欠电压保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">欠电压保护</a>
+<br><a data-href="失电压保护" href="plc课件笔记/失电压保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">失电压保护</a>
+<br>
+关联：<a data-href="电磁式低压电器结构" href="plc课件笔记/电磁式低压电器结构.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电磁式低压电器结构</a>、<a data-href="常用配电电器" href="plc课件笔记/常用配电电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">常用配电电器</a>、<a data-href="主令电器" href="plc课件笔记/主令电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">主令电器</a>、<a data-href="熔断器" href="plc课件笔记/熔断器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">熔断器</a>、<a data-href="接触器" href="plc课件笔记/接触器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">接触器</a>、<a data-href="继电器" href="plc课件笔记/继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">继电器</a>
+]]></description><link>plc课件笔记/低压电器概述.html</link><guid isPermaLink="false">PLC课件笔记/低压电器概述.md</guid><pubDate>Thu, 10 Sep 2026 03:18:09 GMT</pubDate></item><item><title><![CDATA[低压断路器]]></title><description><![CDATA[集刀开关+<a data-href="熔断器" href="plc课件笔记/熔断器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">熔断器</a>+<a data-href="热继电器" href="plc课件笔记/热继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">热继电器</a>+欠<a href="plc课件笔记/电压继电器.html#_0" target="_self" rel="noopener noreferrer" from="2" to="7" origin-text="电压继电器" class="internal-link virtual-link-a">电压继电器</a>一体。
+可手动操作；自动实现：短路、过载、欠压、失压保护。
+<br>过电流脱扣器：串联主回路，<a href="plc课件笔记/短路保护.html#_0" target="_self" rel="noopener noreferrer" from="1" to="5" origin-text="短路保护" class="internal-link virtual-link-a">短路保护</a>🔗
+<br>热脱扣器：串联主回路，<a href="plc课件笔记/过载保护.html#_0" target="_self" rel="noopener noreferrer" from="1" to="5" origin-text="过载保护" class="internal-link virtual-link-a">过载保护</a>🔗
+欠电压脱扣器：并联电源，欠压保护
+分励脱扣器：远程手动跳闸
+塑壳断路器DZ、框架断路器DW、小型断路器。<br>低压断路器作为 PLC 系统的总电源开关和分支保护，通常出现在 <a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a> 的主电路最前端。<br>
+关联：<a data-href="常用配电电器" href="plc课件笔记/常用配电电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">常用配电电器</a>、<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>、<a data-href="短路保护" href="plc课件笔记/短路保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">短路保护</a>、<a data-href="过载保护" href="plc课件笔记/过载保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">过载保护</a>、<a data-href="欠电压保护" href="plc课件笔记/欠电压保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">欠电压保护</a>、<a data-href="漏电保护断路器" href="plc课件笔记/漏电保护断路器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">漏电保护断路器</a>
+]]></description><link>plc课件笔记/低压断路器.html</link><guid isPermaLink="false">PLC课件笔记/低压断路器.md</guid><pubDate>Thu, 10 Sep 2026 03:18:09 GMT</pubDate></item><item><title><![CDATA[分支指针P]]></title><description><![CDATA[用于CJ跳转指令、CALL子程序调用。
+编号：P0-P62，P64-P4095；P63跳转至END。
+CJ Px：条件跳转，跳到标号Px处执行。
+CALL Px：调用Px标号的子程序，子程序结束SRET返回。 关联：<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>、<a data-href="条件跳转CJ" href="plc课件笔记/条件跳转cj.html#_0" class="internal-link" target="_self" rel="noopener nofollow">条件跳转CJ</a>、<a data-href="子程序调用CALL" href="plc课件笔记/子程序调用call.html#_0" class="internal-link" target="_self" rel="noopener nofollow">子程序调用CALL</a>、<a data-href="中断指针I" href="plc课件笔记/中断指针i.html#_0" class="internal-link" target="_self" rel="noopener nofollow">中断指针I</a>
+]]></description><link>plc课件笔记/分支指针p.html</link><guid isPermaLink="false">PLC课件笔记/分支指针P.md</guid><pubDate>Thu, 10 Sep 2026 03:18:10 GMT</pubDate></item><item><title><![CDATA[变址寄存器V Z]]></title><description><![CDATA[V0-V7，Z0-Z7，一共16点，16位寄存器。
+32位运算：V存高16位，Z存低16位，组合(V0,Z0)。
+地址偏移修改：软元件地址 = 基础地址 + Z/V内存储数值。
+例 Z0=K8，M10Z0 = M18。可修改：X Y M S T C D R K H KnX KnY KnM KnS；不能修改V,Z本身。 关联：<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>、<a data-href="数据寄存器D" href="plc课件笔记/数据寄存器d.html#_0" class="internal-link" target="_self" rel="noopener nofollow">数据寄存器D</a>
+]]></description><link>plc课件笔记/变址寄存器v-z.html</link><guid isPermaLink="false">PLC课件笔记/变址寄存器V Z.md</guid><pubDate>Thu, 10 Sep 2026 03:18:10 GMT</pubDate></item><item><title><![CDATA[基本逻辑指令概述]]></title><description><![CDATA[FX3U/FX3UC共29条基本逻辑指令，用于<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="23" to="26" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>逻辑梯形图。<br>FX3U/FX3UC共29条基本逻辑指令，用于<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="23" to="26" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>逻辑梯形图。操作对象为 <a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a> 中的 X、Y、M、S、T、C、D 等元件。<br>
+关联：<a data-href="LD_LDI_OUT指令" href="plc课件笔记/ld_ldi_out指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">LD_LDI_OUT指令</a>、<a data-href="AND_ANI指令" href="plc课件笔记/and_ani指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">AND_ANI指令</a>、<a data-href="OR_ORI指令" href="plc课件笔记/or_ori指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">OR_ORI指令</a>、<a data-href="ANB_ORB块指令" href="plc课件笔记/anb_orb块指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">ANB_ORB块指令</a>、<a data-href="边沿脉冲指令LDP_LDF" href="plc课件笔记/边沿脉冲指令ldp_ldf.html#_0" class="internal-link" target="_self" rel="noopener nofollow">边沿脉冲指令LDP_LDF</a>、<a data-href="PLS_PLF微分指令" href="plc课件笔记/pls_plf微分指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLS_PLF微分指令</a>、<a data-href="MEP_MEF指令" href="plc课件笔记/mep_mef指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">MEP_MEF指令</a>、<a data-href="SET_RST置位复位" href="plc课件笔记/set_rst置位复位.html#_0" class="internal-link" target="_self" rel="noopener nofollow">SET_RST置位复位</a>、<a data-href="INV取反指令" href="plc课件笔记/inv取反指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">INV取反指令</a>、<a data-href="NOP空操作" href="plc课件笔记/nop空操作.html#_0" class="internal-link" target="_self" rel="noopener nofollow">NOP空操作</a>、<a data-href="MPS_MRD_MPP栈指令" href="plc课件笔记/mps_mrd_mpp栈指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">MPS_MRD_MPP栈指令</a>、<a data-href="MC_MCR主控指令" href="plc课件笔记/mc_mcr主控指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">MC_MCR主控指令</a>、<a data-href="END指令" href="plc课件笔记/end指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">END指令</a>
+]]></description><link>plc课件笔记/基本逻辑指令概述.html</link><guid isPermaLink="false">PLC课件笔记/基本逻辑指令概述.md</guid><pubDate>Wed, 09 Sep 2026 08:59:30 GMT</pubDate></item><item><title><![CDATA[其他常用功能指令]]></title><description><![CDATA[统计源字里面ON(1)的位数；无1则M8020置1判断源的第n位状态，结果输出到位元件
+SQR FNC48 整数开方
+DESQR 浮点数开方
+源不能负数
+位元件ON/OFF翻转，单按钮启停低4位0‑F翻译成七段数码显示码缓冲存储器读写；FX3U可用U□\G□配合BMOV替代PID运算指令，占用源起始连续25个D寄存器存放参数关联文档 <a data-href="浮点数指令要点" href="plc课件笔记/浮点数指令要点.html#_0" class="internal-link" target="_self" rel="noopener nofollow">浮点数指令要点</a>
+<br><a data-href="应用指令概述" href="plc课件笔记/应用指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">应用指令概述</a> ]]></description><link>plc课件笔记/其他常用功能指令.html</link><guid isPermaLink="false">PLC课件笔记/其他常用功能指令.md</guid><pubDate>Thu, 10 Sep 2026 03:18:11 GMT</pubDate></item><item><title><![CDATA[多地控制线路]]></title><description><![CDATA[所有停止按钮（常闭）串联，所有启动按钮（常开）并联。
+可以在多个地点完成启动、停止操作。
+关联：<a data-href="主令电器" href="plc课件笔记/主令电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">主令电器</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>、<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>
+]]></description><link>plc课件笔记/多地控制线路.html</link><guid isPermaLink="false">PLC课件笔记/多地控制线路.md</guid><pubDate>Thu, 10 Sep 2026 03:18:11 GMT</pubDate></item><item><title><![CDATA[多电机顺序启停控制]]></title><description><![CDATA[多台电机必须按先后顺序启动，可用<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="16" to="19" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>辅助触点互锁或定时器延时。<br>
+关联：<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>、<a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a>、<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>
+]]></description><link>plc课件笔记/多电机顺序启停控制.html</link><guid isPermaLink="false">PLC课件笔记/多电机顺序启停控制.md</guid><pubDate>Thu, 10 Sep 2026 03:18:11 GMT</pubDate></item><item><title><![CDATA[变频器基础原理]]></title><description><![CDATA[异步电机转速 与电源频率 相关；改变输出交流电频率实现电机调速。整流器（交流转直流）→ 滤波 → 逆变器（直流转频率可调交流，SPWM调制）
+关联：<a data-href="软启动器原理" href="plc课件笔记/软启动器原理.html#_0" class="internal-link" target="_self" rel="noopener nofollow">软启动器原理</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>、<a data-href="Y‑△降压启动" href="plc课件笔记/y‑△降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">Y‑△降压启动</a>
+]]></description><link>plc课件笔记/变频器基础原理.html</link><guid isPermaLink="false">PLC课件笔记/变频器基础原理.md</guid><pubDate>Thu, 10 Sep 2026 03:18:12 GMT</pubDate></item><item><title><![CDATA[子程序调用CALL]]></title><description><![CDATA[FNC08 CALL；FNC09 SRET；FNC06 FEND
+CALL Pn：调用子程序指针Pn；SRET子程序返回；FEND主程序结束
+子程序写在FEND与END之间；最多5级嵌套；指针P0‑P62，P64‑P127
+子程序内部定时器只能用 T192‑T199
+子程序调用条件OFF时，子程序内元件状态保持不变
+关联文档 <a data-href="应用指令概述" href="plc课件笔记/应用指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">应用指令概述</a>
+<br><a data-href="条件跳转CJ" href="plc课件笔记/条件跳转cj.html#_0" class="internal-link" target="_self" rel="noopener nofollow">条件跳转CJ</a>
+<br><a data-href="中断指令EI_DI_IRET" href="plc课件笔记/中断指令ei_di_iret.html#_0" class="internal-link" target="_self" rel="noopener nofollow">中断指令EI_DI_IRET</a> ]]></description><link>plc课件笔记/子程序调用call.html</link><guid isPermaLink="false">PLC课件笔记/子程序调用CALL.md</guid><pubDate>Wed, 09 Sep 2026 08:59:28 GMT</pubDate></item><item><title><![CDATA[字逻辑运算指令]]></title><description><![CDATA[同为1输出1有1输出1两位不同输出1，相同输出0说明
+16位字按位逻辑运算，支持D开头32位指令
+关联文档 <a data-href="算术运算指令集" href="plc课件笔记/算术运算指令集.html#_0" class="internal-link" target="_self" rel="noopener nofollow">算术运算指令集</a>
+<br><a data-href="移位指令集" href="plc课件笔记/移位指令集.html#_0" class="internal-link" target="_self" rel="noopener nofollow">移位指令集</a> ]]></description><link>plc课件笔记/字逻辑运算指令.html</link><guid isPermaLink="false">PLC课件笔记/字逻辑运算指令.md</guid><pubDate>Thu, 10 Sep 2026 03:18:13 GMT</pubDate></item><item><title><![CDATA[定子串电阻降压启动]]></title><description><![CDATA[启动时串联电阻分压限流；延时之后短接电阻全压运行；使用<a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a>完成切换。<br>两者都是降压启动方式。<a data-href="Y‑△降压启动" href="plc课件笔记/y‑△降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">Y‑△降压启动</a>只适用于正常运行时为三角形接法的电机，定子串电阻法适用于所有笼型电机但电阻功耗较大。<br>
+关联：<a data-href="Y‑△降压启动" href="plc课件笔记/y‑△降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">Y‑△降压启动</a>、<a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a>、<a data-href="软启动器原理" href="plc课件笔记/软启动器原理.html#_0" class="internal-link" target="_self" rel="noopener nofollow">软启动器原理</a>
+]]></description><link>plc课件笔记/定子串电阻降压启动.html</link><guid isPermaLink="false">PLC课件笔记/定子串电阻降压启动.md</guid><pubDate>Thu, 10 Sep 2026 03:18:13 GMT</pubDate></item><item><title><![CDATA[常用配电电器]]></title><description><![CDATA[隔离电源，保障检修安全；可小负载不频繁分断，不能切断短路大电流。隔离电源，保障检修安全；可小负载不频繁分断，不能切断短路大电流。集多种保护功能于一身的配电电器。<a href="plc课件笔记/短路保护.html#_0" target="_self" rel="noopener noreferrer" from="0" to="4" origin-text="短路保护" class="internal-link virtual-link-a">短路保护</a>电器<br>
+关联：<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>、<a data-href="低压断路器" href="plc课件笔记/低压断路器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压断路器</a>、<a data-href="熔断器" href="plc课件笔记/熔断器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">熔断器</a>
+]]></description><link>plc课件笔记/常用配电电器.html</link><guid isPermaLink="false">PLC课件笔记/常用配电电器.md</guid><pubDate>Thu, 10 Sep 2026 03:18:14 GMT</pubDate></item><item><title><![CDATA[定时器T]]></title><description><![CDATA[相当于<a href="plc课件笔记/时间继电器.html#_0" target="_self" rel="noopener noreferrer" from="3" to="8" origin-text="时间继电器" class="internal-link virtual-link-a">时间继电器</a>🔗；对内部时钟脉冲累积计时；当前值=设定值时触点动作。<br>
+设定值可以用十进制常数K，也可以用<a data-href="数据寄存器D" href="plc课件笔记/数据寄存器d.html#_0" class="internal-link" target="_self" rel="noopener nofollow">数据寄存器D</a>的值。
+100ms定时器 T0-T199，定时范围0.1~3276.7s；T192-T199用于子程序/中断
+10ms定时器 T200-T245，0.01~327.67s
+1ms普通定时器 T256-T511，0.001~32.767s 1ms积算 T246-T249
+100ms积算 T250-T255
+<br>Y-△降压启动中 <a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a> 本质就是 PLC 的定时器：<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a> 中的延时自锁逻辑也依赖定时器。<br>
+关联：<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>、<a data-href="SET_RST置位复位" href="plc课件笔记/set_rst置位复位.html#_0" class="internal-link" target="_self" rel="noopener nofollow">SET_RST置位复位</a>、<a data-href="数据寄存器D" href="plc课件笔记/数据寄存器d.html#_0" class="internal-link" target="_self" rel="noopener nofollow">数据寄存器D</a>、<a data-href="子程序调用CALL" href="plc课件笔记/子程序调用call.html#_0" class="internal-link" target="_self" rel="noopener nofollow">子程序调用CALL</a>
+]]></description><link>plc课件笔记/定时器t.html</link><guid isPermaLink="false">PLC课件笔记/定时器T.md</guid><pubDate>Thu, 10 Sep 2026 03:18:14 GMT</pubDate></item><item><title><![CDATA[应用指令概述]]></title><description><![CDATA[
+操作数、16/32位、连续/脉冲执行、标志位
+执行条件、功能号+助记符、操作数[S]源、[D]目标、常数m/nX、Y、M、S，只有ON/OFFT <a data-href="定时器T" href="plc课件笔记/定时器t.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定时器T</a>、C <a data-href="计数器C" href="plc课件笔记/计数器c.html#_0" class="internal-link" target="_self" rel="noopener nofollow">计数器C</a>、D <a data-href="数据寄存器D" href="plc课件笔记/数据寄存器d.html#_0" class="internal-link" target="_self" rel="noopener nofollow">数据寄存器D</a>、R 积算定时器、V <a data-href="变址寄存器V Z" href="plc课件笔记/变址寄存器v-z.html#_0" class="internal-link" target="_self" rel="noopener nofollow">变址寄存器V Z</a>
+K1~K4（16位）
+K1~K8（32位）
+<br>K十进制、H十六进制、E浮点数；指针P <a data-href="分支指针P" href="plc课件笔记/分支指针p.html#_0" class="internal-link" target="_self" rel="noopener nofollow">分支指针P</a>、I <a data-href="中断指针I" href="plc课件笔记/中断指针i.html#_0" class="internal-link" target="_self" rel="noopener nofollow">中断指针I</a>助记符前缀 D；例：DMOV后缀 P，仅上升沿执行一次；例：MOVP、DMOVP条件ON，每个扫描周期执行<br>
+关联：<a data-href="子程序调用CALL" href="plc课件笔记/子程序调用call.html#_0" class="internal-link" target="_self" rel="noopener nofollow">子程序调用CALL</a>、<a data-href="条件跳转CJ" href="plc课件笔记/条件跳转cj.html#_0" class="internal-link" target="_self" rel="noopener nofollow">条件跳转CJ</a>、<a data-href="比较指令CMP_ZCP" href="plc课件笔记/比较指令cmp_zcp.html#_0" class="internal-link" target="_self" rel="noopener nofollow">比较指令CMP_ZCP</a>、<a data-href="传送指令集" href="plc课件笔记/传送指令集.html#_0" class="internal-link" target="_self" rel="noopener nofollow">传送指令集</a>、<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>
+]]></description><link>plc课件笔记/应用指令概述.html</link><guid isPermaLink="false">PLC课件笔记/应用指令概述.md</guid><pubDate>Thu, 10 Sep 2026 03:18:14 GMT</pubDate></item><item><title><![CDATA[接触器]]></title><description><![CDATA[远距离频繁接通/分断交直流主回路、控制回路的自动电器；具备欠压、失压保护能力；无过载、<a href="plc课件笔记/短路保护.html#_0" target="_self" rel="noopener noreferrer" from="7" to="11" origin-text="短路保护" class="internal-link virtual-link-a">短路保护</a>能力。
+电磁机构（线圈、铁芯、衔铁）
+触头系统：主触头（主电路）、辅助常开/常闭触头（控制回路）
+<br><a data-href="灭弧装置" href="plc课件笔记/灭弧装置.html#_0" class="internal-link" target="_self" rel="noopener nofollow">灭弧装置</a>
+释放弹簧、基座
+线圈通电→产生电磁吸力→衔铁吸合→带动全部触头动作；线圈失电→弹簧复位，触头恢复原始状态。KM：线圈；KM常开、KM常闭触点。<br>自锁控制：<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>中利用KM常开辅助触点实现自锁<br>
+互锁控制：<a data-href="三相电机正反转控制" href="plc课件笔记/三相电机正反转控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相电机正反转控制</a>中KM1/KM2常闭触点串联互锁<br>
+多地控制：<a data-href="多地控制线路" href="plc课件笔记/多地控制线路.html#_0" class="internal-link" target="_self" rel="noopener nofollow">多地控制线路</a>通过接触器线圈实现多地点启停<br>
+关联：<a data-href="电磁式低压电器结构" href="plc课件笔记/电磁式低压电器结构.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电磁式低压电器结构</a>、<a data-href="失电压保护" href="plc课件笔记/失电压保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">失电压保护</a>、<a data-href="欠电压保护" href="plc课件笔记/欠电压保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">欠电压保护</a>、<a data-href="继电器" href="plc课件笔记/继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">继电器</a>、<a data-href="灭弧装置" href="plc课件笔记/灭弧装置.html#_0" class="internal-link" target="_self" rel="noopener nofollow">灭弧装置</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>、<a data-href="三相异步电机点动控制" href="plc课件笔记/三相异步电机点动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机点动控制</a>、<a data-href="三相电机正反转控制" href="plc课件笔记/三相电机正反转控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相电机正反转控制</a>、<a data-href="多地控制线路" href="plc课件笔记/多地控制线路.html#_0" class="internal-link" target="_self" rel="noopener nofollow">多地控制线路</a>
+]]></description><link>plc课件笔记/接触器.html</link><guid isPermaLink="false">PLC课件笔记/接触器.md</guid><pubDate>Thu, 10 Sep 2026 03:18:15 GMT</pubDate></item><item><title><![CDATA[时间继电器]]></title><description><![CDATA[实现触点延时接通/断开，分为通电延时、断电延时两大类。电磁式、电动式、空气阻尼式、电子式、数字式。
+通电延时线圈、断电延时线圈
+延时闭合常开、延时断开常开、延时闭合常闭、延时断开常闭；瞬时常开/常闭触点。 关联：<a data-href="继电器" href="plc课件笔记/继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">继电器</a>、<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>、<a data-href="Y‑△降压启动" href="plc课件笔记/y‑△降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">Y‑△降压启动</a>、<a data-href="定子串电阻降压启动" href="plc课件笔记/定子串电阻降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定子串电阻降压启动</a>、<a data-href="多电机顺序启停控制" href="plc课件笔记/多电机顺序启停控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">多电机顺序启停控制</a>
+]]></description><link>plc课件笔记/时间继电器.html</link><guid isPermaLink="false">PLC课件笔记/时间继电器.md</guid><pubDate>Thu, 10 Sep 2026 03:18:15 GMT</pubDate></item><item><title><![CDATA[欠电压保护]]></title><description><![CDATA[电网电压下降至规定阈值之下，电器自动切断电路，防止电压过低烧毁负载设备。<a data-href="接触器" href="plc课件笔记/接触器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">接触器</a>、<a data-href="低压断路器" href="plc课件笔记/低压断路器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压断路器</a>（欠电压脱扣器）<br>
+关联：<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>、<a data-href="失电压保护" href="plc课件笔记/失电压保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">失电压保护</a>、<a data-href="接触器" href="plc课件笔记/接触器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">接触器</a>、<a data-href="低压断路器" href="plc课件笔记/低压断路器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压断路器</a>
+]]></description><link>plc课件笔记/欠电压保护.html</link><guid isPermaLink="false">PLC课件笔记/欠电压保护.md</guid><pubDate>Thu, 10 Sep 2026 03:18:16 GMT</pubDate></item><item><title><![CDATA[比较指令CMP_ZCP]]></title><description><![CDATA[CMP S1 S2 D
+S＞S2：D置ON
+S1=S2：D+1置ON
+S＜S2：D+2置ON
+执行条件OFF时输出保持，需要ZRST复位结果位ZCP S1 S2 S D （S1≤S2）
+S＜S1 → D ON
+S1≤S≤S2 → D+1 ON
+S＞S2 → D+2 ON
+LD=、LD&gt;、AND&lt;&gt;、OR≥等，直接作为触点使用，支持16/32位（D开头）关联文档 <a data-href="应用指令概述" href="plc课件笔记/应用指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">应用指令概述</a>
+<br><a data-href="传送指令集" href="plc课件笔记/传送指令集.html#_0" class="internal-link" target="_self" rel="noopener nofollow">传送指令集</a>
+<br><a data-href="浮点数指令要点" href="plc课件笔记/浮点数指令要点.html#_0" class="internal-link" target="_self" rel="noopener nofollow">浮点数指令要点</a> ]]></description><link>plc课件笔记/比较指令cmp_zcp.html</link><guid isPermaLink="false">PLC课件笔记/比较指令CMP_ZCP.md</guid><pubDate>Thu, 10 Sep 2026 03:18:16 GMT</pubDate></item><item><title><![CDATA[浮点数指令要点]]></title><description><![CDATA[
+二进制浮点数占用连续2个寄存器（高+低）
+32位指令 DE 开头（DEADD、DEMUL、DECMP） DEADD、DESUB、DEMUL、DEDIV
+DESQR 开方
+DECMP、DEZCP 比较
+关联文档 <a data-href="移位指令集" href="plc课件笔记/移位指令集.html#_0" class="internal-link" target="_self" rel="noopener nofollow">移位指令集</a>
+<br><a data-href="比较指令CMP_ZCP" href="plc课件笔记/比较指令cmp_zcp.html#_0" class="internal-link" target="_self" rel="noopener nofollow">比较指令CMP_ZCP</a> ]]></description><link>plc课件笔记/浮点数指令要点.html</link><guid isPermaLink="false">PLC课件笔记/浮点数指令要点.md</guid><pubDate>Thu, 10 Sep 2026 03:18:17 GMT</pubDate></item><item><title><![CDATA[漏电保护]]></title><description><![CDATA[电器外壳与火线意外连通，外壳对地产生电位差，会造成人身触电危险。<a data-href="漏电保护断路器" href="plc课件笔记/漏电保护断路器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">漏电保护断路器</a>：由零序电流互感器、漏电脱扣器、开关装置组成，漏电/触电时快速跳闸切断电源。<br>
+关联：<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>、<a data-href="低压断路器" href="plc课件笔记/低压断路器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压断路器</a>、<a data-href="漏电保护断路器" href="plc课件笔记/漏电保护断路器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">漏电保护断路器</a>、<a data-href="短路保护" href="plc课件笔记/短路保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">短路保护</a>
+]]></description><link>plc课件笔记/漏电保护.html</link><guid isPermaLink="false">PLC课件笔记/漏电保护.md</guid><pubDate>Wed, 09 Sep 2026 08:59:25 GMT</pubDate></item><item><title><![CDATA[数据寄存器D]]></title><description><![CDATA[存储数值，16位；两个相邻D可以组合作为32位寄存器。
+普通型 D0-D199（200点）：停电数据清零；M8033接通可实现停止保持。
+断电保持 D200-D7999（7800点）：断电保存。D1000以后可设置为文件寄存器R。
+特殊数据寄存器 D8000-D8511：监控PLC系统状态，上电初始化写入系统参数。D8000看门狗定时器。<a data-href="特殊数据寄存器D8000-D8511" href="plc课件笔记/特殊数据寄存器d8000-d8511.html#_0" class="internal-link" target="_self" rel="noopener nofollow">特殊数据寄存器D8000-D8511</a>
+<br>ADD/SUB/MUL/DIV <a data-href="算术运算指令集" href="plc课件笔记/算术运算指令集.html#_0" class="internal-link" target="_self" rel="noopener nofollow">算术运算指令集</a> 的操作数均为 D 寄存器；<a data-href="传送指令集" href="plc课件笔记/传送指令集.html#_0" class="internal-link" target="_self" rel="noopener nofollow">传送指令集</a> 的 MOV/BMOV/FMOV 也常用 D 作为源或目标。<br>
+关联：<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>、<a data-href="特殊数据寄存器D8000-D8511" href="plc课件笔记/特殊数据寄存器d8000-d8511.html#_0" class="internal-link" target="_self" rel="noopener nofollow">特殊数据寄存器D8000-D8511</a>、<a data-href="变址寄存器V Z" href="plc课件笔记/变址寄存器v-z.html#_0" class="internal-link" target="_self" rel="noopener nofollow">变址寄存器V Z</a>、<a data-href="应用指令概述" href="plc课件笔记/应用指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">应用指令概述</a>
+]]></description><link>plc课件笔记/数据寄存器d.html</link><guid isPermaLink="false">PLC课件笔记/数据寄存器D.md</guid><pubDate>Wed, 09 Sep 2026 08:59:24 GMT</pubDate></item><item><title><![CDATA[失电压保护]]></title><description><![CDATA[断电之后，设备不能自行恢复启动，防止停电恢复后设备意外自启动造成安全事故。依靠<a data-href="接触器" href="plc课件笔记/接触器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">接触器</a>自锁触点实现，断电后<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="10" to="13" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>线圈失电，自锁断开；恢复供电不会自动吸合，必须重新按下启动按钮。<br>
+关联：<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>、<a data-href="欠电压保护" href="plc课件笔记/欠电压保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">欠电压保护</a>、<a data-href="接触器" href="plc课件笔记/接触器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">接触器</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>、<a data-href="三相异步电机点动控制" href="plc课件笔记/三相异步电机点动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机点动控制</a>
+]]></description><link>plc课件笔记/失电压保护.html</link><guid isPermaLink="false">PLC课件笔记/失电压保护.md</guid><pubDate>Thu, 10 Sep 2026 03:18:18 GMT</pubDate></item><item><title><![CDATA[漏电保护断路器]]></title><description><![CDATA[电路漏电、人身触电时快速跳闸切断电源。
+组成：零序电流互感器、漏电脱扣器、开关本体。
+关联：<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>、<a data-href="漏电保护" href="plc课件笔记/漏电保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">漏电保护</a>、<a data-href="低压断路器" href="plc课件笔记/低压断路器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压断路器</a>、<a data-href="短路保护" href="plc课件笔记/短路保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">短路保护</a>
+]]></description><link>plc课件笔记/漏电保护断路器.html</link><guid isPermaLink="false">PLC课件笔记/漏电保护断路器.md</guid><pubDate>Thu, 10 Sep 2026 03:18:18 GMT</pubDate></item><item><title><![CDATA[灭弧装置]]></title><description><![CDATA[触头分断瞬间，触头间隙电场极强，空气电离，产生高温导电电弧；电弧会烧蚀触头，必须熄灭电弧。灭弧栅片（磁吹灭弧），把长电弧分割成多段短电弧快速冷却熄灭。
+关联：<a data-href="电磁式低压电器结构" href="plc课件笔记/电磁式低压电器结构.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电磁式低压电器结构</a>、<a data-href="接触器" href="plc课件笔记/接触器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">接触器</a>、<a data-href="继电器" href="plc课件笔记/继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">继电器</a>
+]]></description><link>plc课件笔记/灭弧装置.html</link><guid isPermaLink="false">PLC课件笔记/灭弧装置.md</guid><pubDate>Thu, 10 Sep 2026 03:18:18 GMT</pubDate></item><item><title><![CDATA[熔断器]]></title><description><![CDATA[主要实现<a data-href="短路保护" href="plc课件笔记/短路保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">短路保护</a>，不能做可靠<a href="plc课件笔记/过载保护.html#_0" target="_self" rel="noopener noreferrer" from="6" to="10" origin-text="过载保护" class="internal-link virtual-link-a">过载保护</a>🔗。正常工作：熔体长期不熔断；过载：短时间熔断；短路：瞬间熔断。熔断时间和电流大小成反比。<br>
+关联：<a data-href="短路保护" href="plc课件笔记/短路保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">短路保护</a>
+]]></description><link>plc课件笔记/熔断器.html</link><guid isPermaLink="false">PLC课件笔记/熔断器.md</guid><pubDate>Thu, 10 Sep 2026 03:18:18 GMT</pubDate></item><item><title><![CDATA[条件跳转CJ]]></title><description><![CDATA[FNC00 CJ Pn
+CJ Pn：条件满足跳转到标号Pn；P0‑P4095；P63等价跳转到END
+跳转后软元件状态 Y、M、S：保持当前状态
+C：暂停计数；10ms/100ms定时器暂停计时；1ms定时器继续计时，触点不动作；T192‑T199不受跳转影响 注意：标号不能重复；可以向前跳（步号变小），防止扫描超时&gt;200ms看门狗报错；多个CJ可跳向同一个P指针
+CJ与MC：跳转是否生效和MC主控是否有效相关
+关联文档 <a data-href="应用指令概述" href="plc课件笔记/应用指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">应用指令概述</a>
+<br><a data-href="子程序调用CALL" href="plc课件笔记/子程序调用call.html#_0" class="internal-link" target="_self" rel="noopener nofollow">子程序调用CALL</a>
+<br><a data-href="FOR_NEXT循环" href="plc课件笔记/for_next循环.html#_0" class="internal-link" target="_self" rel="noopener nofollow">FOR_NEXT循环</a> ]]></description><link>plc课件笔记/条件跳转cj.html</link><guid isPermaLink="false">PLC课件笔记/条件跳转CJ.md</guid><pubDate>Thu, 10 Sep 2026 03:18:19 GMT</pubDate></item><item><title><![CDATA[特殊数据寄存器D8000-D8511]]></title><description><![CDATA[用于PLC系统监控参数。
+D8000：看门狗（警戒时钟）定时器，单位ms，监视扫描周期。上电先清零，再载入系统初始值。 关联：<a data-href="数据寄存器D" href="plc课件笔记/数据寄存器d.html#_0" class="internal-link" target="_self" rel="noopener nofollow">数据寄存器D</a>、<a data-href="辅助继电器M" href="plc课件笔记/辅助继电器m.html#_0" class="internal-link" target="_self" rel="noopener nofollow">辅助继电器M</a>
+]]></description><link>plc课件笔记/特殊数据寄存器d8000-d8511.html</link><guid isPermaLink="false">PLC课件笔记/特殊数据寄存器D8000-D8511.md</guid><pubDate>Thu, 10 Sep 2026 03:18:19 GMT</pubDate></item><item><title><![CDATA[状态继电器S]]></title><description><![CDATA[用于步进顺控指令，在<a data-href="PLC的编程语言及编程规则" href="plc课件笔记/plc的编程语言及编程规则.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC的编程语言及编程规则</a>中介绍；工序流程控制；不用STL时，可以当做<a data-href="辅助继电器M" href="plc课件笔记/辅助继电器m.html#_0" class="internal-link" target="_self" rel="noopener nofollow">辅助继电器M</a>使用。
+普通型 S0~S499（500点） S0-S9：初始状态专用
+S10-S19：返回原点专用 断电保持型 S500-S4095（3596点） S900-S999：信号报警器专用 <br>
+关联：<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>、<a data-href="辅助继电器M" href="plc课件笔记/辅助继电器m.html#_0" class="internal-link" target="_self" rel="noopener nofollow">辅助继电器M</a>
+]]></description><link>plc课件笔记/状态继电器s.html</link><guid isPermaLink="false">PLC课件笔记/状态继电器S.md</guid><pubDate>Thu, 10 Sep 2026 03:18:19 GMT</pubDate></item><item><title><![CDATA[热继电器]]></title><description><![CDATA[三相异步电动机<a href="plc课件笔记/过载保护.html#_0" target="_self" rel="noopener noreferrer" from="0" to="4" origin-text="过载保护" class="internal-link virtual-link-a">过载保护</a>🔗，不能做<a href="plc课件笔记/短路保护.html#_0" target="_self" rel="noopener noreferrer" from="4" to="8" origin-text="短路保护" class="internal-link virtual-link-a">短路保护</a>🔗。<br>电流流过热元件发热，双金属片受热弯曲，推动机构断开常闭触头，切断<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="25" to="28" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>线圈回路。<br>FR热元件；FR常闭触点，串联在<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="16" to="19" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>线圈控制回路。<br>
+关联：<a data-href="继电器" href="plc课件笔记/继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">继电器</a>、<a data-href="过载保护" href="plc课件笔记/过载保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">过载保护</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>、<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>
+]]></description><link>plc课件笔记/热继电器.html</link><guid isPermaLink="false">PLC课件笔记/热继电器.md</guid><pubDate>Thu, 10 Sep 2026 03:18:20 GMT</pubDate></item><item><title><![CDATA[电机反接制动]]></title><description><![CDATA[电气制动方式；给电机通入反向相序电源，产生反向制动转矩实现快速停车；使用<a data-href="速度继电器" href="plc课件笔记/速度继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">速度继电器</a>SV检测转速，转速接近0断开反向电源，防止电机反转。
+<br>反接制动：制动速度快、转矩大，但能量消耗大，需<a href="plc课件笔记/速度继电器.html#_0" target="_self" rel="noopener noreferrer" from="19" to="24" origin-text="速度继电器" class="internal-link virtual-link-a">速度继电器</a>反馈
+<br><a data-href="电机能耗制动" href="plc课件笔记/电机能耗制动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电机能耗制动</a>：制动平稳、能量利用好，但制动转矩随转速降低而减小
+<br>
+关联：<a data-href="速度继电器" href="plc课件笔记/速度继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">速度继电器</a>、<a data-href="电机能耗制动" href="plc课件笔记/电机能耗制动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电机能耗制动</a>、<a data-href="电磁抱闸机械制动" href="plc课件笔记/电磁抱闸机械制动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电磁抱闸机械制动</a>
+]]></description><link>plc课件笔记/电机反接制动.html</link><guid isPermaLink="false">PLC课件笔记/电机反接制动.md</guid><pubDate>Thu, 10 Sep 2026 03:18:20 GMT</pubDate></item><item><title><![CDATA[电机能耗制动]]></title><description><![CDATA[电机断开三相交流电源；定子绕组通入直流，产生静止磁场；转子惯性切割磁场产生制动转矩。需要整流单元输出直流电源，使用<a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a>控制制动时长。
+能耗制动：制动平稳、能量利用好，但需额外直流电源
+<br><a data-href="电机反接制动" href="plc课件笔记/电机反接制动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电机反接制动</a>：制动速度快，但需<a href="plc课件笔记/速度继电器.html#_0" target="_self" rel="noopener noreferrer" from="9" to="14" origin-text="速度继电器" class="internal-link virtual-link-a">速度继电器</a>反馈
+<br>
+关联：<a data-href="电机反接制动" href="plc课件笔记/电机反接制动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电机反接制动</a>、<a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a>、<a data-href="电磁抱闸机械制动" href="plc课件笔记/电磁抱闸机械制动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电磁抱闸机械制动</a>
+]]></description><link>plc课件笔记/电机能耗制动.html</link><guid isPermaLink="false">PLC课件笔记/电机能耗制动.md</guid><pubDate>Thu, 10 Sep 2026 03:18:20 GMT</pubDate></item><item><title><![CDATA[电气图符号规范]]></title><description><![CDATA[
+全部元件画在无电压、无外力原始状态。
+符号大小、线宽不改变含义；引线可以旋转方向。
+触点口诀：左开右闭，下开上闭。 基本文字符号：单字母、双字母（如K，KA）
+辅助文字符号：描述功能状态，拼接在基本符号后
+I、O不允许单独做符号，J不使用。 关联：<a data-href="电气图种类" href="plc课件笔记/电气图种类.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气图种类</a>、<a data-href="电气图绘制规范" href="plc课件笔记/电气图绘制规范.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气图绘制规范</a>
+]]></description><link>plc课件笔记/电气图符号规范.html</link><guid isPermaLink="false">PLC课件笔记/电气图符号规范.md</guid><pubDate>Wed, 09 Sep 2026 08:59:21 GMT</pubDate></item><item><title><![CDATA[电压继电器]]></title><description><![CDATA[线圈并联接电源；线圈匝数多，导线细，阻抗大。
+过电压<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="3" to="6" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>🔗
+<br>欠电压<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="3" to="6" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>🔗：用于欠压保护
+<br>
+关联：<a data-href="继电器" href="plc课件笔记/继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">继电器</a>、<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>、<a data-href="欠电压保护" href="plc课件笔记/欠电压保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">欠电压保护</a>
+]]></description><link>plc课件笔记/电压继电器.html</link><guid isPermaLink="false">PLC课件笔记/电压继电器.md</guid><pubDate>Thu, 10 Sep 2026 03:18:21 GMT</pubDate></item><item><title><![CDATA[电气图绘制规范]]></title><description><![CDATA[
+布局：从左向右，从上向下；输入在左侧，输出右侧，主次分明。
+元件表示：集中表示、半集中表示、分开表示。
+可动部件绘制为未得电不受外力状态。 关联：<a data-href="电气图种类" href="plc课件笔记/电气图种类.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气图种类</a>、<a data-href="电气图符号规范" href="plc课件笔记/电气图符号规范.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气图符号规范</a>、<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>
+]]></description><link>plc课件笔记/电气图绘制规范.html</link><guid isPermaLink="false">PLC课件笔记/电气图绘制规范.md</guid><pubDate>Thu, 10 Sep 2026 03:18:21 GMT</pubDate></item><item><title><![CDATA[电气图种类]]></title><description><![CDATA[电气图：使用图形符号、文字符号描述电气设备连接与逻辑关系的图纸。
+电气总平面图
+系统图/框图
+<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>（控制电路图）
+元件设备表
+元件布置图
+端子图
+接线图/接线表
+逻辑图、程序图（PLC软件）
+<br><a href="plc课件笔记/编程调试设备.html#_0" target="_self" rel="noopener noreferrer" from="0" to="6" origin-text="编程调试设备" class="internal-link virtual-link-a">编程调试设备</a>🔗 <a data-href="编程调试设备" href="plc课件笔记/编程调试设备.html#_0" class="internal-link" target="_self" rel="noopener nofollow">编程调试设备</a> 中通过计算机连接到 PLC，编写的梯形图程序就是一种程序图。<br>
+关联：<a data-href="电气图符号规范" href="plc课件笔记/电气图符号规范.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气图符号规范</a>、<a data-href="电气图绘制规范" href="plc课件笔记/电气图绘制规范.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气图绘制规范</a>、<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>、<a data-href="编程调试设备" href="plc课件笔记/编程调试设备.html#_0" class="internal-link" target="_self" rel="noopener nofollow">编程调试设备</a>
+]]></description><link>plc课件笔记/电气图种类.html</link><guid isPermaLink="false">PLC课件笔记/电气图种类.md</guid><pubDate>Thu, 10 Sep 2026 03:18:21 GMT</pubDate></item><item><title><![CDATA[电气控制原理图]]></title><description><![CDATA[分为两大部分：主电路、控制电路
+主电路：断路器、<a href="plc课件笔记/熔断器.html#_0" target="_self" rel="noopener noreferrer" from="5" to="8" origin-text="熔断器" class="internal-link virtual-link-a">熔断器</a>🔗、<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="9" to="12" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>主触点、<a href="plc课件笔记/热继电器.html#_0" target="_self" rel="noopener noreferrer" from="16" to="20" origin-text="热继电器" class="internal-link virtual-link-a">热继电器</a>热元件、电机，执行电器；
+<br>控制电路：按钮、<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="4" to="7" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>辅助触点、<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="12" to="15" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>线圈触点；
+<br>
+关联：<a data-href="电气图种类" href="plc课件笔记/电气图种类.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气图种类</a>、<a data-href="电气图绘制规范" href="plc课件笔记/电气图绘制规范.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气图绘制规范</a>、<a data-href="三相异步电机点动控制" href="plc课件笔记/三相异步电机点动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机点动控制</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>、<a data-href="三相电机正反转控制" href="plc课件笔记/三相电机正反转控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相电机正反转控制</a>、<a data-href="Y‑△降压启动" href="plc课件笔记/y‑△降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">Y‑△降压启动</a>、<a data-href="多地控制线路" href="plc课件笔记/多地控制线路.html#_0" class="internal-link" target="_self" rel="noopener nofollow">多地控制线路</a>
+]]></description><link>plc课件笔记/电气控制原理图.html</link><guid isPermaLink="false">PLC课件笔记/电气控制原理图.md</guid><pubDate>Thu, 10 Sep 2026 03:18:22 GMT</pubDate></item><item><title><![CDATA[电流继电器]]></title><description><![CDATA[线圈串联接入主电路；线圈匝数少、导线粗，阻抗小。
+过电流<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="3" to="6" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>🔗：电流超过阈值动作
+<br>欠电流<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="3" to="6" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>🔗：电流低于阈值动作
+<br>
+关联：<a data-href="继电器" href="plc课件笔记/继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">继电器</a>、<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>
+]]></description><link>plc课件笔记/电流继电器.html</link><guid isPermaLink="false">PLC课件笔记/电流继电器.md</guid><pubDate>Thu, 10 Sep 2026 03:18:22 GMT</pubDate></item><item><title><![CDATA[电磁式低压电器结构]]></title><description><![CDATA[电磁电器分为两大基础部分：感受部分、执行部分
+感受部分：电磁机构：线圈、铁芯、衔铁，接收电信号产生电磁吸力
+执行部分：触头系统：完成电路接通、分断
+辅助：<a data-href="灭弧装置" href="plc课件笔记/灭弧装置.html#_0" class="internal-link" target="_self" rel="noopener nofollow">灭弧装置</a>，消除分断产生的电弧 线圈电流：交流电磁机构、直流电磁机构
+铁芯衔铁外形：E型、U型
+衔铁运动：拍合式、直动式 直流电磁铁：整体实心铁芯
+交流电磁铁：硅钢片叠压；铁芯带有短路环，消除振动噪音 直流线圈 / 交流线圈
+串联电流线圈、并联电压线圈
+点接触、线接触、面接触
+主触头：接通主回路，大电流
+<br>辅助触头：接通<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>，小电流 常开触头（NO）：线圈失电断开，得电闭合
+常闭触头（NC）：线圈失电闭合，得电断开
+<br>
+关联：<a data-href="灭弧装置" href="plc课件笔记/灭弧装置.html#_0" class="internal-link" target="_self" rel="noopener nofollow">灭弧装置</a>、<a data-href="接触器" href="plc课件笔记/接触器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">接触器</a>、<a data-href="继电器" href="plc课件笔记/继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">继电器</a>、<a data-href="电气图符号规范" href="plc课件笔记/电气图符号规范.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气图符号规范</a>
+]]></description><link>plc课件笔记/电磁式低压电器结构.html</link><guid isPermaLink="false">PLC课件笔记/电磁式低压电器结构.md</guid><pubDate>Thu, 10 Sep 2026 03:18:22 GMT</pubDate></item><item><title><![CDATA[电磁抱闸机械制动]]></title><description><![CDATA[依靠机械抱闸刹车片抱紧电机转轴实现制动；分为断电制动型、通电制动型。与电气制动方式（<a data-href="电机反接制动" href="plc课件笔记/电机反接制动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电机反接制动</a>、<a data-href="电机能耗制动" href="plc课件笔记/电机能耗制动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电机能耗制动</a>）不同，属于机械摩擦制动。<br>
+关联：<a data-href="电机反接制动" href="plc课件笔记/电机反接制动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电机反接制动</a>、<a data-href="电机能耗制动" href="plc课件笔记/电机能耗制动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电机能耗制动</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>
+]]></description><link>plc课件笔记/电磁抱闸机械制动.html</link><guid isPermaLink="false">PLC课件笔记/电磁抱闸机械制动.md</guid><pubDate>Thu, 10 Sep 2026 03:18:23 GMT</pubDate></item><item><title><![CDATA[电气控制线路设计经验法]]></title><description><![CDATA[
+安全可靠 交流回路不能串联两个电器线圈；
+同一电器常开、常闭触点不要跨接不同电源相；
+减少多级连锁动作，防止竞争；触点容量不够用并联（接通能力）、串联（分断能力）； 简单经济：减少触点、减少导线，非必要电器避免长期通电。
+消除寄生电路：意外导通的错误回路。
+完整保护：<a href="plc课件笔记/短路保护.html#_0" target="_self" rel="noopener noreferrer" from="1" to="5" origin-text="短路保护" class="internal-link virtual-link-a">短路保护</a>🔗、过流保护、<a href="plc课件笔记/过载保护.html#_0" target="_self" rel="noopener noreferrer" from="11" to="15" origin-text="过载保护" class="internal-link virtual-link-a">过载保护</a>🔗、零压失压保护。 经验设计法：基于已有典型电路和控制逻辑，通过修改组合快速设计；适合简单场景。
+<br><a data-href="逻辑设计法" href="plc课件笔记/逻辑设计法.html#_0" class="internal-link" target="_self" rel="noopener nofollow">逻辑设计法</a>：使用布尔代数、卡诺图等数学方法严格推导，适合复杂逻辑但步骤繁琐。
+<br>
+关联：<a data-href="电气控制原理图" href="plc课件笔记/电气控制原理图.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制原理图</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>、<a data-href="逻辑设计法" href="plc课件笔记/逻辑设计法.html#_0" class="internal-link" target="_self" rel="noopener nofollow">逻辑设计法</a>
+]]></description><link>plc课件笔记/电气控制线路设计经验法.html</link><guid isPermaLink="false">PLC课件笔记/电气控制线路设计经验法.md</guid><pubDate>Thu, 10 Sep 2026 03:18:23 GMT</pubDate></item><item><title><![CDATA[短路保护]]></title><description><![CDATA[短路：交流电路不同相/相与地、直流正负极，不经过负载直接连通。
+选择性保护：故障支路断开，其余电路正常工作。
+<a data-href="熔断器" href="plc课件笔记/熔断器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">熔断器</a>：主要用于短路保护，反时限熔断特性
+<br><a data-href="低压断路器" href="plc课件笔记/低压断路器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压断路器</a>：内置过电流脱扣器实现短路保护
+<br>
+关联：<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>、<a data-href="过载保护" href="plc课件笔记/过载保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">过载保护</a>、<a data-href="熔断器" href="plc课件笔记/熔断器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">熔断器</a>、<a data-href="低压断路器" href="plc课件笔记/低压断路器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压断路器</a>
+]]></description><link>plc课件笔记/短路保护.html</link><guid isPermaLink="false">PLC课件笔记/短路保护.md</guid><pubDate>Thu, 10 Sep 2026 03:18:23 GMT</pubDate></item><item><title><![CDATA[算术运算指令集]]></title><description><![CDATA[代数带符号运算，影响M8020/M8021/M8022标志
+16位相乘结果占连续2个字
+32位相乘占连续4个字 商存入D，余数存入D+1
+除数禁止等于0 不影响M8020/M8021/M8022标志位
+优先INCP脉冲防止每个扫描持续自增
+关联文档 <a data-href="交换转换指令XCH_BCD_BIN" href="plc课件笔记/交换转换指令xch_bcd_bin.html#_0" class="internal-link" target="_self" rel="noopener nofollow">交换转换指令XCH_BCD_BIN</a>
+<br><a data-href="字逻辑运算指令" href="plc课件笔记/字逻辑运算指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">字逻辑运算指令</a> ]]></description><link>plc课件笔记/算术运算指令集.html</link><guid isPermaLink="false">PLC课件笔记/算术运算指令集.md</guid><pubDate>Thu, 10 Sep 2026 03:18:24 GMT</pubDate></item><item><title><![CDATA[继电器]]></title><description><![CDATA[依靠外部输入物理信号，控制控制回路通断的自动切换电器；结构原理和<a data-href="接触器" href="plc课件笔记/接触器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">接触器</a>相似。
+<br>继电器用于控制回路，电流小，一般不需要<a data-href="灭弧装置" href="plc课件笔记/灭弧装置.html#_0" class="internal-link" target="_self" rel="noopener nofollow">灭弧装置</a>；
+输入可以是电压、电流、温度、转速、时间等各类物理量；
+<br><a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="0" to="3" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>主要驱动主电路大电流负载。 用途分类：控制继电器、保护继电器、中间继电器
+<br>动作时间：瞬时继电器、<a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a>
+<br>输入信号：<a data-href="电压继电器" href="plc课件笔记/电压继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电压继电器</a>、<a data-href="电流继电器" href="plc课件笔记/电流继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电流继电器</a>、<a data-href="热继电器" href="plc课件笔记/热继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">热继电器</a>、<a data-href="速度继电器" href="plc课件笔记/速度继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">速度继电器</a>
+<br>工作原理：电磁式（见 <a data-href="电磁式低压电器结构" href="plc课件笔记/电磁式低压电器结构.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电磁式低压电器结构</a>）、热、电子式继电器
+输出形式：有触点、无触点继电器
+<br>传统继电器控制电路中的各类继电器，功能已被 PLC 的 <a data-href="辅助继电器M" href="plc课件笔记/辅助继电器m.html#_0" class="internal-link" target="_self" rel="noopener nofollow">辅助继电器M</a>、<a data-href="状态继电器S" href="plc课件笔记/状态继电器s.html#_0" class="internal-link" target="_self" rel="noopener nofollow">状态继电器S</a>、定时器、计数器 等软元件替代。<br>
+关联：<a data-href="接触器" href="plc课件笔记/接触器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">接触器</a>、<a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a>、<a data-href="热继电器" href="plc课件笔记/热继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">热继电器</a>、<a data-href="速度继电器" href="plc课件笔记/速度继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">速度继电器</a>、<a data-href="电流继电器" href="plc课件笔记/电流继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电流继电器</a>、<a data-href="电压继电器" href="plc课件笔记/电压继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电压继电器</a>、<a data-href="电磁式低压电器结构" href="plc课件笔记/电磁式低压电器结构.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电磁式低压电器结构</a>
+]]></description><link>plc课件笔记/继电器.html</link><guid isPermaLink="false">PLC课件笔记/继电器.md</guid><pubDate>Thu, 10 Sep 2026 03:18:24 GMT</pubDate></item><item><title><![CDATA[移位指令集]]></title><description><![CDATA[循环右移/左移；移出位送进位M8022；RORP脉冲执行
+SFTR FNC34 位右移
+SFTL FNC35 位左移
+位元件组移位，n2移动位数
+指针D先清零
+存入数据，指针+1
+满M8022置1 读出最先写入数据
+剩余数据前移
+指针‑1
+关联文档 <a data-href="字逻辑运算指令" href="plc课件笔记/字逻辑运算指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">字逻辑运算指令</a>
+<br><a data-href="浮点数指令要点" href="plc课件笔记/浮点数指令要点.html#_0" class="internal-link" target="_self" rel="noopener nofollow">浮点数指令要点</a> ]]></description><link>plc课件笔记/移位指令集.html</link><guid isPermaLink="false">PLC课件笔记/移位指令集.md</guid><pubDate>Thu, 10 Sep 2026 03:18:25 GMT</pubDate></item><item><title><![CDATA[编程调试设备]]></title><description><![CDATA[
+手持编程器：老式，按键输入指令表，现场调试。
+计算机+编程软件：GX Works2 / GX Works3，支持梯形图、指令表、ST语言，在线监控、上下载、强制IO、注释编辑。
+触摸屏HMI：可监控PLC寄存器状态，下发操作。 关联：<a data-href="PLC综述" href="plc课件笔记/plc综述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC综述</a>、<a data-href="PLC的编程语言及编程规则" href="plc课件笔记/plc的编程语言及编程规则.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC的编程语言及编程规则</a>
+]]></description><link>plc课件笔记/编程调试设备.html</link><guid isPermaLink="false">PLC课件笔记/编程调试设备.md</guid><pubDate>Thu, 10 Sep 2026 03:18:25 GMT</pubDate></item><item><title><![CDATA[绕线式电机启动控制]]></title><description><![CDATA[转子回路串联启动电阻，减小启动电流，提高启动转矩。<a data-href="Y‑△降压启动" href="plc课件笔记/y‑△降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">Y‑△降压启动</a>和<a data-href="定子串电阻降压启动" href="plc课件笔记/定子串电阻降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定子串电阻降压启动</a>适用于笼型异步电动机，转子绕组短接；绕线式电机转子绕组外接，可串联电阻或采用其他启动方式。
+<br>时间原则：<a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a>逐级切除电阻
+<br>电流原则：<a data-href="电流继电器" href="plc课件笔记/电流继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电流继电器</a>根据转子电流逐级切除电阻
+<br>
+关联：<a data-href="时间继电器" href="plc课件笔记/时间继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">时间继电器</a>、<a data-href="电流继电器" href="plc课件笔记/电流继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电流继电器</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>
+]]></description><link>plc课件笔记/绕线式电机启动控制.html</link><guid isPermaLink="false">PLC课件笔记/绕线式电机启动控制.md</guid><pubDate>Thu, 10 Sep 2026 03:18:25 GMT</pubDate></item><item><title><![CDATA[自动往复循环控制]]></title><description><![CDATA[依靠<a data-href="主令电器" href="plc课件笔记/主令电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">主令电器</a>检测机械限位；行程开关SQ触点自动切换电机正反转<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="24" to="27" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>🔗，实现工作台往复自动来回运动。<br>
+关联：<a data-href="三相电机正反转控制" href="plc课件笔记/三相电机正反转控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相电机正反转控制</a>、<a data-href="主令电器" href="plc课件笔记/主令电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">主令电器</a>
+]]></description><link>plc课件笔记/自动往复循环控制.html</link><guid isPermaLink="false">PLC课件笔记/自动往复循环控制.md</guid><pubDate>Thu, 10 Sep 2026 03:18:26 GMT</pubDate></item><item><title><![CDATA[软启动器原理]]></title><description><![CDATA[利用晶闸管可控硅，平滑调节输出电压，电压从0逐步升到额定电压，限制启动冲击电流；运行后闭合旁路<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="47" to="50" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>🔗。<br><a data-href="变频器基础原理" href="plc课件笔记/变频器基础原理.html#_0" class="internal-link" target="_self" rel="noopener nofollow">变频器基础原理</a> 在降压启动基础上进一步将交流电转换为可调频率的电源，实现调速功能；软启动器仅调压不调频，无法控制运行速度。<br>
+关联：<a data-href="Y‑△降压启动" href="plc课件笔记/y‑△降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">Y‑△降压启动</a>、<a data-href="定子串电阻降压启动" href="plc课件笔记/定子串电阻降压启动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">定子串电阻降压启动</a>、<a data-href="变频器基础原理" href="plc课件笔记/变频器基础原理.html#_0" class="internal-link" target="_self" rel="noopener nofollow">变频器基础原理</a>
+]]></description><link>plc课件笔记/软启动器原理.html</link><guid isPermaLink="false">PLC课件笔记/软启动器原理.md</guid><pubDate>Thu, 10 Sep 2026 03:18:26 GMT</pubDate></item><item><title><![CDATA[计数器C]]></title><description><![CDATA[计数当前值≥设定值，计数器触点动作。分为内部计数器、高速计数器。设定范围K1~K32767
+普通 C0-C99：断电复位
+断电保持 C100-C199：断电保存计数值
+计数范围：-2147483648 ~ +2147483647
+M82**系列特殊M决定方向：OFF=增计数；ON=减计数
+普通C200-C219；断电保持C220-C234
+32位断电保持增减计数器；对X0-X5硬件输入脉冲计数；中断处理，不受扫描周期影响。
+三类：
+单相单计数输入高速计数器 C235-C245
+单相双计数输入高速计数器 C246-C250
+双相双计数输入高速计数器 C251-C255 关联：<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>、<a data-href="特殊数据寄存器D8000-D8511" href="plc课件笔记/特殊数据寄存器d8000-d8511.html#_0" class="internal-link" target="_self" rel="noopener nofollow">特殊数据寄存器D8000-D8511</a>、<a data-href="SET_RST置位复位" href="plc课件笔记/set_rst置位复位.html#_0" class="internal-link" target="_self" rel="noopener nofollow">SET_RST置位复位</a>
+]]></description><link>plc课件笔记/计数器c.html</link><guid isPermaLink="false">PLC课件笔记/计数器C.md</guid><pubDate>Thu, 10 Sep 2026 03:18:26 GMT</pubDate></item><item><title><![CDATA[输出继电器Y]]></title><description><![CDATA[
+将程序运算结果输出到外部负载（<a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="15" to="18" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>🔗、指示灯、电磁阀）。
+八进制编号：Y0-Y7,Y10-Y17……
+每个Y有1个物理外部输出触点，无数内部编程触点。
+只有Y可以直接驱动外部负载；M、S、T、C不能直接驱动外部设备。
+<br>线圈由用户程序驱动。<a data-href="SET_RST置位复位" href="plc课件笔记/set_rst置位复位.html#_0" class="internal-link" target="_self" rel="noopener nofollow">SET_RST置位复位</a> 中的 SET 指令可以保持 Y 为 ON 状态。
+<br><a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="0" to="3" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>🔗 KM → Y0；指示灯 HL → Y1；电磁阀得电 → Y2<br>
+关联：<a data-href="输入继电器X" href="plc课件笔记/输入继电器x.html#_0" class="internal-link" target="_self" rel="noopener nofollow">输入继电器X</a>、<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>、<a data-href="PLC硬件组成" href="plc课件笔记/plc硬件组成.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC硬件组成</a>、<a data-href="SET_RST置位复位" href="plc课件笔记/set_rst置位复位.html#_0" class="internal-link" target="_self" rel="noopener nofollow">SET_RST置位复位</a>
+]]></description><link>plc课件笔记/输出继电器y.html</link><guid isPermaLink="false">PLC课件笔记/输出继电器Y.md</guid><pubDate>Thu, 10 Sep 2026 03:18:26 GMT</pubDate></item><item><title><![CDATA[输入继电器X]]></title><description><![CDATA[
+PLC与外部输入设备接口，接收按钮、限位开关、传感器信号。
+八进制编号：X0~X7,X10~X17……
+线圈由外部输入端子驱动，用户程序不能驱动X线圈。
+常开、常闭触点在程序内部可无限次使用。
+启动按钮 → X0；停止按钮 → X1；行程开关（限位）→ X2-X5。<a data-href="边沿脉冲指令LDP_LDF" href="plc课件笔记/边沿脉冲指令ldp_ldf.html#_0" class="internal-link" target="_self" rel="noopener nofollow">边沿脉冲指令LDP_LDF</a> 可检测 X 信号上升沿/下降沿。
+扩展模块可以增加X点数。
+<br>
+关联：<a data-href="输出继电器Y" href="plc课件笔记/输出继电器y.html#_0" class="internal-link" target="_self" rel="noopener nofollow">输出继电器Y</a>、<a data-href="PLC硬件组成" href="plc课件笔记/plc硬件组成.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC硬件组成</a>、<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>、<a data-href="边沿脉冲指令LDP_LDF" href="plc课件笔记/边沿脉冲指令ldp_ldf.html#_0" class="internal-link" target="_self" rel="noopener nofollow">边沿脉冲指令LDP_LDF</a>、<a data-href="三相异步电机点动控制" href="plc课件笔记/三相异步电机点动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机点动控制</a>
+]]></description><link>plc课件笔记/输入继电器x.html</link><guid isPermaLink="false">PLC课件笔记/输入继电器X.md</guid><pubDate>Thu, 10 Sep 2026 03:18:27 GMT</pubDate></item><item><title><![CDATA[过载保护]]></title><description><![CDATA[负载电流大于额定电流，但负载阻抗仍然存在；设备具备一定过载能力，不能超过极限允许温升，不需要立刻切断电路。
+<a data-href="热继电器" href="plc课件笔记/热继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">热继电器</a>：电动机过载保护核心器件
+<br><a data-href="低压断路器" href="plc课件笔记/低压断路器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压断路器</a>：热脱扣器实现过载保护
+<br>
+关联：<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>、<a data-href="短路保护" href="plc课件笔记/短路保护.html#_0" class="internal-link" target="_self" rel="noopener nofollow">短路保护</a>、<a data-href="热继电器" href="plc课件笔记/热继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">热继电器</a>、<a data-href="低压断路器" href="plc课件笔记/低压断路器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压断路器</a>
+]]></description><link>plc课件笔记/过载保护.html</link><guid isPermaLink="false">PLC课件笔记/过载保护.md</guid><pubDate>Thu, 10 Sep 2026 03:18:27 GMT</pubDate></item><item><title><![CDATA[速度继电器]]></title><description><![CDATA[主要用于三相异步电机反接制动；依靠转轴转速动作。
+关联：<a data-href="继电器" href="plc课件笔记/继电器.html#_0" class="internal-link" target="_self" rel="noopener nofollow">继电器</a>、<a data-href="低压电器概述" href="plc课件笔记/低压电器概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">低压电器概述</a>、<a data-href="电机反接制动" href="plc课件笔记/电机反接制动.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电机反接制动</a>
+]]></description><link>plc课件笔记/速度继电器.html</link><guid isPermaLink="false">PLC课件笔记/速度继电器.md</guid><pubDate>Thu, 10 Sep 2026 03:18:27 GMT</pubDate></item><item><title><![CDATA[边沿脉冲指令LDP_LDF]]></title><description><![CDATA[
+LDP：上升沿，接通一个扫描周期
+LDF：下降沿，接通一个扫描周期
+ANDP / ANDF：串联上升沿、下降沿
+ORP / ORF：并联上升沿、下降沿
+启动按钮上升沿触发可避免按钮按住期间重复执行；配合 <a data-href="输入继电器X" href="plc课件笔记/输入继电器x.html#_0" class="internal-link" target="_self" rel="noopener nofollow">输入继电器X</a> 的 X0-X5 可用于输入中断检测。<br>
+只在信号跳变瞬间产生一个扫描周期脉冲。与 <a data-href="MPS_MRD_MPP栈指令" href="plc课件笔记/mps_mrd_mpp栈指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">MPS_MRD_MPP栈指令</a> 配合使用可在分支结构中捕获边沿信号。
+<br>
+关联：<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>、<a data-href="输入继电器X" href="plc课件笔记/输入继电器x.html#_0" class="internal-link" target="_self" rel="noopener nofollow">输入继电器X</a>、<a data-href="MPS_MRD_MPP栈指令" href="plc课件笔记/mps_mrd_mpp栈指令.html#_0" class="internal-link" target="_self" rel="noopener nofollow">MPS_MRD_MPP栈指令</a>
+]]></description><link>plc课件笔记/边沿脉冲指令ldp_ldf.html</link><guid isPermaLink="false">PLC课件笔记/边沿脉冲指令LDP_LDF.md</guid><pubDate>Thu, 10 Sep 2026 03:18:28 GMT</pubDate></item><item><title><![CDATA[辅助继电器M]]></title><description><![CDATA[
+内部中间<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="4" to="7" origin-text="继电器" class="internal-link virtual-link-a">继电器</a>🔗，线圈只能程序驱动，触点仅内部使用，不能直接驱动外部负载，十进制编号。
+PLC断电，状态全部复位，无断电保持。依靠PLC内置锂电池保存状态，断电后ON/OFF状态不丢失。分为触点利用型、线圈驱动型。
+M8000：RUN运行监视，PLC运行时持续ON
+M8001：RUN运行监视，PLC运行时持续OFF
+M8002：初始脉冲，RUN开始接通一个扫描周期
+M8003：初始脉冲，RUN开始断开一个扫描周期
+M8005：锂电池电压过低标志
+M8011：10ms时钟脉冲；M8012：100ms；M8013：1s；M8014：1min脉冲
+M8020：零标志；M8021：借位标志；M8022：进位标志 M8033：STOP时保持输出
+M8034：全部输出禁止
+M8040：禁止STL状态转移
+M8030：电池指示灯关闭
+<br>M8039：恒定扫描模式（见 <a data-href="PLC工作原理" href="plc课件笔记/plc工作原理.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC工作原理</a>）
+<br><a data-href="SET_RST置位复位" href="plc课件笔记/set_rst置位复位.html#_0" class="internal-link" target="_self" rel="noopener nofollow">SET_RST置位复位</a> 中的 SET 指令可以保持 M 为 ON 状态，用于内部标志的锁定。<br>
+关联：<a data-href="PLC软元件概述" href="plc课件笔记/plc软元件概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">PLC软元件概述</a>、<a data-href="特殊数据寄存器D8000-D8511" href="plc课件笔记/特殊数据寄存器d8000-d8511.html#_0" class="internal-link" target="_self" rel="noopener nofollow">特殊数据寄存器D8000-D8511</a>、<a data-href="SET_RST置位复位" href="plc课件笔记/set_rst置位复位.html#_0" class="internal-link" target="_self" rel="noopener nofollow">SET_RST置位复位</a>
+]]></description><link>plc课件笔记/辅助继电器m.html</link><guid isPermaLink="false">PLC课件笔记/辅助继电器M.md</guid><pubDate>Thu, 10 Sep 2026 03:18:28 GMT</pubDate></item><item><title><![CDATA[逻辑设计法]]></title><description><![CDATA[把<a href="plc课件笔记/继电器.html#_0" target="_self" rel="noopener noreferrer" from="1" to="4" origin-text="继电器" class="internal-link virtual-link-a">继电器</a><a href="plc课件笔记/接触器.html#_0" target="_self" rel="noopener noreferrer" from="4" to="7" origin-text="接触器" class="internal-link virtual-link-a">接触器</a>触点、线圈转化为布尔逻辑表达式，使用逻辑代数化简，再绘制控制电路图。 <br>布尔代数化简的结果可以直接映射为 PLC 的梯形图程序（<a data-href="基本逻辑指令概述" href="plc课件笔记/基本逻辑指令概述.html#_0" class="internal-link" target="_self" rel="noopener nofollow">基本逻辑指令概述</a>），一个乘积项对应串联触点，加法对应并联。<br>
+关联：<a data-href="电气控制线路设计经验法" href="plc课件笔记/电气控制线路设计经验法.html#_0" class="internal-link" target="_self" rel="noopener nofollow">电气控制线路设计经验法</a>、<a data-href="三相异步电机长动控制" href="plc课件笔记/三相异步电机长动控制.html#_0" class="internal-link" target="_self" rel="noopener nofollow">三相异步电机长动控制</a>
+]]></description><link>plc课件笔记/逻辑设计法.html</link><guid isPermaLink="false">PLC课件笔记/逻辑设计法.md</guid><pubDate>Wed, 09 Sep 2026 08:59:14 GMT</pubDate></item></channel></rss>
